@@ -1,0 +1,101 @@
+/* Estilos básicos */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #1e3a8a;
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    width: 300px;
+}
+
+button {
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #3b82f6;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#timer {
+    color: red;
+    font-weight: bold;
+}
+
+#skipBtn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#skipBtn:hover {
+    background-color: #ff7961;
+}
+
+#finalScreen {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    width: 300px;
+}
+
+#finalScreen h2 {
+    color: #1e3a8a;
+}
+
+#finalForm input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#finalForm button {
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#finalForm button:hover {
+    background-color: #3b82f6;
+}
+    
