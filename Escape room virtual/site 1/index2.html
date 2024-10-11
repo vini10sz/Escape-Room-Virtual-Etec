@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room Virtual</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Escape Room Virtual</h1>
+        <p>Resolva enigmas e escape da sala!</p>
+    </header>
+
+ 
+    <!-- Fases do Jogo -->
+    <section id="game" style="display:none;">
+        <h2>Desafio - <span id="faseNumero">Fase 1</span></h2>
+        <p id="challenge"></p>
+        <form id="gameForm">
+            <input type="text" id="answer" name="answer" placeholder="Digite sua resposta">
+            <button type="submit">Enviar Resposta</button>
+        </form>
+        <button id="skipBtn">Pular Fase</button>
+        <p id="timer">Tempo restante: <span id="timeLeft">90</span> segundos</p>
+        <p id="feedback"></p>
+        <p id="letters">Letras obtidas: <span id="letrasObtidas"></span></p>
+    </section>
+
+    <!-- Tela Final - Formar a Palavra -->
+    <section id="finalScreen" style="display:none;">
+        <h2>Parabéns, você completou o jogo!</h2>
+        <p>Essas são as letras que você conseguiu:</p>
+        <p id="finalLetters"></p>
+        <form id="finalForm">
+            <label for="finalWord">Forme a palavra final:</label>
+            <input type="text" id="finalWord" name="finalWord" placeholder="Digite a palavra final">
+            <button type="submit">Verificar Palavra</button>
+        </form>
+        <p id="finalFeedback"></p>
+    </section>
+
+    <!-- Script JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
