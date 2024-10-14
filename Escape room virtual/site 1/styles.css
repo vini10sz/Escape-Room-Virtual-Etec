@@ -1,0 +1,144 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('../fonts/PressStart2P-Regular.ttf');
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('../imgs/background.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    color: #ecf0f1;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Ajustando a imagem de fundo dos inputs */
+.form {
+    margin-top: 250px;
+    left: 515px;
+    width: 350px;
+    position: absolute;
+    z-index: -1; /* Coloca a imagem atrás dos inputs */
+}
+
+/* Estilo do título */
+.titulo {
+    margin-top: -140px;
+    left: 515px;
+    width: 350px;
+    position: absolute;
+    z-index: 1; /* Garante que o título fique acima da imagem de fundo */
+}
+
+/* Estilo da legenda */
+.sub {
+    font-family: 'Press Start 2P';
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-top: -30px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+}
+
+.realize {
+    font-family: 'Press Start 2P';
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    animation: pulse 2.5s infinite; 
+
+}
+
+/* Seção de login */
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    z-index: 2; /* Mantém os elementos de login acima da imagem */
+    position: relative;
+    top:90px;
+}
+
+/* Estilo dos inputs */
+input[type="text"], input[type="password"] {
+    width: 100%; /* Largura total */
+    padding: 10px;
+    margin: 10px 0; /* Margem para separar os inputs */
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    z-index: 2; /* Mantém os inputs acima da imagem de fundo */
+    display: block; /* Coloca os inputs em blocos, um embaixo do outro */
+    box-sizing: border-box; /* Inclui o padding e a borda na largura total */
+}
+
+.user {
+    font-family: 'Press Start 2P';
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-top: -30px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    font-size: 15px;
+
+}
+.senha {
+    font-family: 'Press Start 2P';
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-top: -30px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    font-size: 15px;
+    text-align: center;
+
+
+}
+
+
+/* Estilo dos botões */
+button {
+    padding: 10px 20px;
+    background-color: #bfbfbf;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: transform 0.3s, background-color 0.3s;
+    z-index: 2; /* Mantém os botões acima da imagem de fundo */
+    align-self: center; /* Centraliza o botão no formulário */
+    margin-top: 20px; /* Adiciona margem para ajuste */
+}
+
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #a0a0a0;
+}
+
+/* Ocultando seções de jogo e tela final inicialmente */
+#game, #finalScreen {
+    display: none;
+}
+
+/* Estilos adicionais */
+#timer, #feedback, #letters {
+    margin-top: 20px;
+}
