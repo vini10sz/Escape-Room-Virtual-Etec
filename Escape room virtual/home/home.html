@@ -28,6 +28,7 @@
 
         .container {
             text-align: center;
+            position: relative;
         }
 
         h1 {
@@ -46,7 +47,7 @@
         h2 {
             font-family: 'Press Start 2P', cursive;
             font-size: 2em;
-            color: #ffc800; /* Cor amarela conforme solicitado */
+            color: #ffc800;
             text-shadow: 2px 2px 0 #5c5c5c,
                          -1px -1px 0 #FFFFFF,
                          1px -1px 0 #FFFFFF,
@@ -54,40 +55,232 @@
                          1px 1px 0 #FFFFFF;
             margin-bottom: 20px;
             letter-spacing: 3px;
+            top:450px;
         }
 
         .button {
-            display: inline-block;
-            margin: 10px;
-            padding: 20px 40px;
-            background-color: #bfbfbf;
-            color: #000000;
-            text-decoration: none;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 1.5em;
-            border-radius: 50px;
-            border: 5px solid #000000;
-            text-align: center;
-            box-shadow: 4px 4px 0 #5c5c5c, -4px -4px 0 #FFFFFF;
-            transition: background-color 0.3s, transform 0.3s;
-            position: relative;
+    display: inline-block;
+    margin: 25px;
+    padding: 20px 40px;
+    background-color: #bfbfbf;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5em;
+    border-radius: 50px;
+    border: 5px solid #000000;
+    text-align: center;
+    box-shadow: 4px 4px 0 #5c5c5c, -4px -4px 0 #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave */
+    position: relative;
+    top: 35px;
+}
+
+.button:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do botão */
+    background-color: #a0a0a0; /* Altera a cor de fundo ao passar o mouse */
+}
+
+
+        /* Adicionando os elementos do fundo */
+        .background-element {
+            position: absolute;
+            width: 80px; /* Ajuste o tamanho conforme necessário */
+            height: auto;
         }
 
-        .button:hover {
-            background-color: #a0a0a0;
-            transform: scale(1.05);
+        /* Posição das imagens */
+        .nuvem {
+            top: -155px;
+            left: -190px;
+            width: 235px; /* A lua pode ser maior */
+
         }
 
+        .nuvem2 {
+            top: -60px;
+            right: -50px;
+            width: 150px; 
+        }
+
+        .stars {
+            top: 100px;
+            left: 880px;
+            width: 60px;
+            animation: pulse 1.5s infinite; 
+
+        }
+
+        .stars2 {
+            top: 50px;
+            left: -170px;
+            width: 60px;
+            animation: pulse 1.5s infinite; 
+
+        }
+        .estrela {
+            top: -135px;
+            left: 685px;
+            width: 45px;
+            animation: pulse 1.5s infinite; 
+
+        }
+
+        .estrela2 {
+            top: 50px;
+            left: -25px;
+            width: 60px;
+            animation: pulse 1.5s infinite; 
+
+        }
+
+        .coracao {
+            bottom: 100px;
+            left: 42%; /* Centraliza horizontalmente */
+            transform: translateX(-50%); /* Ajusta a posição para o centro exato */
+            width: 135px;
+            top:320px;
+            animation: pulse 1.5s infinite; 
+
+        }
+
+        .lua {
+            top: -140px;
+            right: -165px;
+            width: 100px; /* maior */
+        }
+
+        .a{
+            top: 180px;
+            left: -85px;
+            width: 60px;
+            animation: pulse 1.5s infinite; 
+
+        }
+        .z {
+      position: absolute; /* Certifique-se de que está configurado como absoluto */
+      bottom: 0; /* Posiciona na parte inferior */
+      right: 0; /* Posiciona na parte direita */
+      width: 60px; /* Mantém o tamanho original */
+      top:312px;
+      animation: pulse 1.5s infinite; 
+
+}
+.e {
+    
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    width: 60px;
+    top: 325px; 
+    animation: pulse 1.5s infinite; 
+
+}
+
+.p {
+    position: absolute; 
+    bottom: 0; 
+    left: 552;
+    width: 60px;
+    right: 20px;
+    top: 70px; 
+    animation: pulse 1.5s infinite; 
+
+}
+
+.b{
+    position: absolute; 
+    bottom: 0; 
+    left: 250;
+    width: 60px;
+    right: -175px;
+    top: 55px; 
+    animation: pulse 1.5s infinite; 
+
+}
+.c{
+    position: absolute; 
+    bottom: 0; 
+    left: 300;
+    width: 60px;
+    right: 800px;
+    top: -40px; 
+    animation: pulse 1.5s infinite; 
+
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.key {
+    animation: pulse 1.5s infinite; 
+    position: absolute; 
+    bottom: 0; 
+    left: 250;
+    width: 60px;
+    right: -175px;
+    top: 55px; 
+}
+
+.trofeu {
+    animation: pulse 1.5s infinite; 
+    top: 250px;
+    left: -200px;
+    width: 60px;
+}
+.bandeira {
+    animation: pulse 1.5s infinite; 
+    position: absolute; 
+      bottom: 0; 
+      right: -50; 
+      left:920px;
+      width: 60px; 
+      top:250px;
+}
+
+
+       
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Escape Room</h1>
-    <h2>Virtual</h2> <!-- Subtítulo com a cor amarela -->
+    <h2>Virtual</h2>
+
     <a href="file:///C:/xampp/htdocs/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%201/index2.html" class="button">Jogo 1</a>
     <a href="file:///C:/xampp/htdocs/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%202/index.html" class="button">Jogo 2</a>
     <a href="file:///C:/xampp/htdocs/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%203/index.html" class="button">Jogo 3</a>
+
+    <img src="../imgs/nuvem.png" class="background-element nuvem" alt="Nuvem no céu">
+    <img src="../imgs/nuvem2.png" class="background-element nuvem2" alt="Outra nuvem no céu">
+    <img src="../imgs/stars.png" class="background-element stars" alt="Estrelas no céu">
+    <img src="../imgs/stars.png" class="background-element stars2" alt="Mais estrelas no céu">
+    <img src="../imgs/coracao.png" class="background-element coracao" alt="Coração flutuante">
+    <img src="../imgs/lua.png" class="background-element lua" alt="Lua brilhante no céu">
+    <img src="../imgs/estrela.png" class="background-element estrela" alt="Pequena estrela brilhante">
+    <img src="../imgs/estrela.png" class="background-element estrela2" alt="Outra pequena estrela brilhante">
+    <img src="../imgs/a.png" class="background-element a" alt="aa">
+    <img src="../imgs/c.png" class="background-element c" alt="cc">
+    <img src="../imgs/p.png" class="background-element p" alt="pp">
+    <img src="../imgs/e.png" class="background-element e" alt="ee">
+    <img src="../imgs/z.png" class="background-element z" alt="zz">
+    <img src="../imgs/bandeira.png" class="background-element bandeira" alt="band">
+    <img src="../imgs/key.png" class="background-element key" alt="chave">
+    <img src="../imgs/trofeu.png" class="background-element trofeu" alt="tro">
+
+
+
 </div>
 
 </body>
