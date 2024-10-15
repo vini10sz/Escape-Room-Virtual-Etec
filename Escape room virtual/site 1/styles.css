@@ -35,36 +35,79 @@ body {
     font-family: 'Press Start 2P';
     margin-top: 20px;
     z-index: 2; /* Mantém acima da imagem de fundo */
-    animation: pulse 2.5s infinite; 
     text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
     color: #000000; /* Cor do texto preto */
 
 }
 
 #finalform{
-
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 12px;
+    text-align: center;
 
 }
 
-#finalLetters{
+.letras{
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 15px;
+    border:#e04848;
+    text-align: center;
+
+}
+.parabens{
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #fd0000, 1px -1px 0 #ff0000, -1px 1px 0 #ff0000, 1px 1px 0 #ff0000; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    border:#e04848;
+    font-size: 20px;
+    text-align: center;
+    animation: pulse 2.5s infinite; 
 
 
 }
 
 #finalWord{
-
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 12px;
+    text-align: center;
 
 
 }
 
 #finalFeedback {
-
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 12px;
+    text-align: center;
 
 
 }
 
 .verificar{
-
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 12px;
+    text-align: center;
 
 
 }
