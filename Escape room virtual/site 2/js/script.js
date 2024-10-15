@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
         startTimer();
     });
 
+    
+    
+
     // Função do cronômetro
     function startTimer() {
         timeLeft = 90;

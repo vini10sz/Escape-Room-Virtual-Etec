@@ -11,14 +11,16 @@
     <header>
         <img src="../imgs/titulo.png" class="titulo" alt="tit">
         <p class ='sub'>Resolva enigmas e escape da sala!</p>
-        <p class ='realize'>FAÇA O CADASTRO PARA INICIAR O JOGO!</p>
 
     </header>
+    <p class ='realize'>FAÇA O CADASTRO PARA INICIAR O JOGO!</p>
+
     <img src="../imgs/inputs.png" class=" background-element form" alt="formulario">
 
 
     <section id="login">
         <form id="loginForm">
+
             <label class="user" for="username">NOME DE USUÁRIO</label>
             <input type="text" id="username" name="username" required>
             <label class="senha" for="password">SENHA</label>
@@ -33,7 +35,7 @@
         <h2 class="desafio">DESAFIO - <span id="faseNumero">FASE 1</span></h2>
         <p id="challenge"></p>
         <form id="gameForm">
-            <input type="text" id="answer" name="answer" placeholder="Digite sua resposta">
+            <input type="text" id="answer" name="answer" placeholder="Digite a letra">
             <button class = "enviar "type="submit">ENVIAR RESPOSTA</button>
             <button id="skipBtn">Pular Fase</button>
         </form>
