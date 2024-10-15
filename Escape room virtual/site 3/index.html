@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escape Room Virtual</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <!-- Header -->
     <header>
-        <h1>Escape Room Virtual</h1>
-        <p>Resolva enigmas e escape da sala!</p>
-    </header>
+        <img src="../imgs/titulo.png" class="titulo" alt="tit">
+        <p class ='sub'>Resolva enigmas e escape da sala!</p>
+        <p class ='realize'>FAÇA O CADASTRO PARA INICIAR O JOGO!</p>
 
-    <!-- Cadastro/Login -->
+    </header>
+    <img src="../imgs/inputs.png" class=" background-element form" alt="formulario">
+
+
     <section id="login">
-        <h2>Faça o Cadastro para Jogar</h2>
         <form id="loginForm">
-            <label for="username">Nome de Usuário:</label>
+            <label class="user" for="username">NOME DE USUÁRIO</label>
             <input type="text" id="username" name="username" required>
-            <label for="password">Senha:</label>
+            <label class="senha" for="password">SENHA</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit">Entrar</button>
+            <button type="submit">ENTRAR</button>
         </form>
     </section>
 
@@ -54,5 +56,6 @@
 
     <!-- Script JS -->
     <script src="js/script.js"></script>
+
 </body>
 </html>

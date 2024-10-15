@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escape Room Virtual</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <!-- Header -->
     <header>
-        <h1>Escape Room Virtual</h1>
-        <p>Resolva enigmas e escape da sala!</p>
+        <img src="../imgs/titulo.png" class="titulo" alt="tit">
+        <p class='desafio'>Resolva enigmas e escape da sala!</p>
     </header>
 
-    <!-- Cadastro/Login -->
+    <img src="../imgs/inputs.png" class="background-element form" alt="formulario">
+    <p class='realize'>FAÇA O CADASTRO PARA INICIAR O JOGO!</p> 
+
     <section id="login">
-        <h2>Faça o Cadastro para Jogar</h2>
         <form id="loginForm">
-            <label for="username">Nome de Usuário:</label>
+            <label class="user" for="username">NOME DE USUÁRIO</label>
             <input type="text" id="username" name="username" required>
-            <label for="password">Senha:</label>
+            <label class="senha" for="password">SENHA</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit">Entrar</button>
+            <button type="submit">ENTRAR</button>
         </form>
     </section>
 
     <!-- Fases do Jogo -->
-    <section id="game" style="display:none;">
-        <h2>Desafio - <span id="faseNumero">Fase 1</span></h2>
-        <p id="challenge"></p>
+    <section id="game">
+        <img src="../imgs/fundo.png" class="fundo" alt="formulario">
+        <h2 class = "desafio">Desafio - <span id="faseNumero">Fase 1</span></h2>
         <form id="gameForm">
             <input type="text" id="answer" name="answer" placeholder="Digite sua resposta">
             <button type="submit">Enviar Resposta</button>
@@ -40,7 +41,8 @@
     </section>
 
     <!-- Tela Final - Formar a Palavra -->
-    <section id="finalScreen" style="display:none;">
+    <section id="finalScreen">
+    
         <h2>Parabéns, você completou o jogo!</h2>
         <p>Essas são as letras que você conseguiu:</p>
         <p id="finalLetters"></p>
