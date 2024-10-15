@@ -31,7 +31,38 @@ body {
     flex-direction: column;
     position: relative;
 }
+#finalScreen{
 
+
+}
+
+#finalform{
+
+
+}
+
+#finalLetters{
+
+
+}
+
+#finalWord{
+
+
+
+}
+
+#finalFeedback {
+
+
+
+}
+
+.verificar{
+
+
+    
+}
 /* Ajustando a imagem de fundo dos inputs */
 .form {
     margin-top: 250px;
@@ -39,25 +70,6 @@ body {
     width: 350px;
     position: absolute;
     z-index: -1; /* Coloca a imagem atrás dos inputs */
-}
-
-#answer{
-
-        display: block; /* Coloca os inputs em blocos, um embaixo do outro */
-        width: 200px; /* Ajuste conforme necessário */
-        padding: 15px 20px;
-        background-color: #bfbfbf;
-        color: #000000;
-        text-decoration: none;
-        font-family: 'Press Start 2P', cursive;
-        font-size: 12px;
-        border-radius: 50px;
-        border: 5px solid #000000;
-        text-align: center;
-        box-shadow: 4px 4px 0 #5c5c5c, -4px -4px 0 #FFFFFF;
-        transition: background-color 0.3s, transform 0.3s;
-        margin: 10px 0; /* Margem para separar os inputs */
-       z-index: 2;
 }
 
 /* Estilo do título */
@@ -70,28 +82,13 @@ body {
 }
 
 /* Estilo da legenda */
-.desafio {
+.sub {
     font-family: 'Press Start 2P';
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     margin-top: 5px;
     z-index: 2; /* Mantém acima da imagem de fundo */
     margin-left: 45px;
 }
-#game{
-
-display:none;
-   
-}
-.fundo {
-
-    margin-top: -45px;
-    left: 249px;
-    width: 850px;
-    position: absolute;
-    z-index: 2; /* Coloca a imagem atrás dos inputs */
-
-}
-
 
 .realize {
     font-family: 'Press Start 2P';
@@ -161,8 +158,77 @@ input[type="text"]:hover, input[type="password"]:hover {
 
 
 }
+#answer {
+
+    margin: auto;
+    font-size: 9px;
 
 
+}
+#gameForm{
+margin: auto;
+
+}
+.tempo{
+
+    width: 20px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: 20px; /* Mantendo a proporção */
+    margin-right: 25px; /* Espaço entre a imagem e o texto */
+    margin-left: -25px;
+    top: 415px; 
+    position: absolute;
+    animation: pulse 1.5s infinite; 
+
+}
+#challenge{  /*perguntas estilos*/
+
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 18px;
+
+}
+.desafio{
+
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #7f308a, 1px -1px 0 #7f308a, -1px 1px 0 #7f308a, 1px 1px 0 #7f308a,; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 25px;
+    text-align: center;
+}
+#timer{
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 15px;
+
+
+
+}
+
+     .enviar:hover {
+        transform: scale(1.1);
+        background-color: #77e4a0;
+    }
+
+
+
+
+#letters{
+
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #e04848, 1px -1px 0 #e04848, -1px 1px 0 #e04848, 1px 1px 0 #e04848; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 15px;
+}
 button {
     padding: 10px 20px;
     background-color: #bfbfbf;
@@ -170,20 +236,54 @@ button {
     border: 2px solid #000000;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 13px;
     transition: transform 0.3s, background-color 0.3s;
     z-index: 2; /* Mantém os botões acima da imagem de fundo */
     margin-top: 20px; /* Adiciona margem para ajuste */
     text-align: center; /* Garante centralização do conteúdo do botão */
-    margin-left: 45px;
+    margin-left: 68px;
     margin-bottom: -25px;
     font-family: 'Press Start 2P';
 }
+.enviar{
+    padding: 10px 20px;
+    background-color: #20ff6b;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: transform 0.3s, background-color 0.3s;
+    z-index: 2; /* Mantém os botões acima da imagem de fundo */
+    margin-top: 20px; /* Adiciona margem para ajuste */
+    text-align: center; /* Garante centralização do conteúdo do botão */
+    margin-left: 68px;
+    margin-bottom: -25px;
+    font-family: 'Press Start 2P';
+}
+#skipBtn{
+    padding: 10px 20px;
+    background-color: #e26060;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: transform 0.3s, background-color 0.3s;
+    z-index: 2; /* Mantém os botões acima da imagem de fundo */
+    margin-top: 20px; /* Adiciona margem para ajuste */
+    text-align: center; /* Garante centralização do conteúdo do botão */
+    margin-left: 150px;
+    margin-bottom: -25px;
+    font-family: 'Press Start 2P';
+
+}
+    
 
 
 button:hover {
     transform: scale(1.1);
-    background-color: #803c3c;
+    background-color: #b83a3a;
 }
 
 /* Ocultando seções de jogo e tela final inicialmente */
