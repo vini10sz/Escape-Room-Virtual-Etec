@@ -47,13 +47,17 @@
     </section>
 
     <!-- Tela Final - Formar a Palavra -->
+
     <section id="finalScreen" style="display:none;">
-        <h2>PARABÉNS, VOCÊ COMPLETOU O JOGO!</h2>
-        <p>Essas são as letras que você conseguiu:</p>
+        <img src="../imgs/fundo.png" class="fundoFinal" alt="t">
+
+
+        <p class ="letras">Essas são as letras que você conseguiu:</p>
+        <p id="finalLetters"></p>
         <form id="finalForm">
-            <label for="finalWord">Forme a palavra final:</label>
-            <input type="text" id="finalWord" name="finalWord" placeholder="Digite a palavra final">
-            <button class ="verificar" type="submit">Verificar Palavra</button>
+            <label for="finalWord" class="final">Forme a palavra final:</label>
+            <input type="text" class ="txtPalavra"id="finalWord" name="finalWord" placeholder="Digite a palavra final">
+            <button class ="verificar" type="submit">VERIFICAR PALAVRA</button>
         </form>
         <p id="finalFeedback"></p>
     </section>

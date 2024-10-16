@@ -31,86 +31,144 @@ body {
     flex-direction: column;
     position: relative;
 }
-#finalScreen{
-    font-family: 'Press Start 2P';
+#finalForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
-    z-index: 2; /* Mantém acima da imagem de fundo */
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
-    color: #000000; /* Cor do texto preto */
-
 }
 
-#finalform{
-    font-family: 'Press Start 2P';
-    margin-top: 20px;
-    z-index: 2; /* Mantém acima da imagem de fundo */
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
-    color: #000000; /* Cor do texto preto */
+#finalWord {
+    display: block;
+    width: 250px;
+    padding: 15px 20px;
+    background-color: #bfbfbf;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
     font-size: 12px;
+    border-radius: 50px;
+    border: 5px solid #000000;
     text-align: center;
+    box-shadow: 4px 4px 0 #5c5c5c, -4px -4px 0 #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 10px; /* Espaço entre o input e o botão */
+    margin-left: 35px;
+}
+
+.verificar {
+    width: 250px;
+    padding: 15px 20px;
+    background-color: #bfbfbf;
+    color: #000000;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    border-radius: 50px;
+    border: 5px solid #000000;
+    text-align: center;
+    box-shadow: 4px 4px 0 #5c5c5c, -4px -4px 0 #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    margin-top: 200;
+    margin-left: 50px;
+}
+
+.txtPalavra {
+    text-align: center;
+    margin-left:62px;
+    
 
 }
 
 .letras{
     font-family: 'Press Start 2P';
-    margin-top: 20px;
+    margin-top: 50px;
     z-index: 2; /* Mantém acima da imagem de fundo */
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    text-shadow: -1px -1px 0 #FFFFE0, 1px -1px 0 #FFFFE0, -1px 1px 0 #FFFFE0, 1px 1px 0 #FFFFE0	; 
     color: #000000; /* Cor do texto preto */
-    font-size: 15px;
     border:#e04848;
+    font-size: 18px;
     text-align: center;
+    margin-left:40px;
+
+
 
 }
-.parabens{
+.parabens {
+    font-family: 'Press Start 2P';
+    position: absolute;
+    z-index: 2; /* Para garantir que fique acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #FF6347, 1px -1px 0 #FF6347, -1px 1px 0 #FF6347, 1px 1px 0 #FF6347;
+    color: #000000;
+    font-size: 22px;
+    text-align: center;
+    white-space: nowrap; /* Não permite quebra de linha */
+    animation: pulse 2.5s infinite;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para o centro do elemento */
+    top: 10px; /* Ajuste este valor conforme necessário para a posição vertical */
+}
+
+
+
+#finalLetters{
+
+    text-shadow: -1px -1px 0 #B22222, 1px -1px 0 #B22222, -1px 1px 0 #B22222, 1px 1px 0 #B22222; 
     font-family: 'Press Start 2P';
     margin-top: 20px;
     z-index: 2; /* Mantém acima da imagem de fundo */
-    text-shadow: -1px -1px 0 #fd0000, 1px -1px 0 #ff0000, -1px 1px 0 #ff0000, 1px 1px 0 #ff0000; /* Contorno branco */
     color: #000000; /* Cor do texto preto */
     border:#e04848;
     font-size: 20px;
     text-align: center;
-    animation: pulse 2.5s infinite; 
+    margin-left:62px;
+
+
 
 
 }
 
-#finalWord{
+
+.final{
     font-family: 'Press Start 2P';
     margin-top: 20px;
     z-index: 2; /* Mantém acima da imagem de fundo */
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    text-shadow: -1px -1px 0 #8B008B	, 1px -1px 0 #8B008B	, -1px 1px 0 #8B008B	, 1px 1px 0 #8B008B	; /* Contorno branco */
     color: #000000; /* Cor do texto preto */
     font-size: 12px;
     text-align: center;
+    margin-left:62px;
+
 
 
 }
 
 #finalFeedback {
     font-family: 'Press Start 2P';
-    margin-top: 20px;
+    margin-top: 50px;
     z-index: 2; /* Mantém acima da imagem de fundo */
     text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
     color: #000000; /* Cor do texto preto */
     font-size: 12px;
     text-align: center;
+    margin-left:55px;
 
 
 }
 
-.verificar{
-    font-family: 'Press Start 2P';
-    margin-top: 20px;
-    z-index: 2; /* Mantém acima da imagem de fundo */
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
-    color: #000000; /* Cor do texto preto */
-    font-size: 12px;
-    text-align: center;
 
+#finalScreen .titulo {
+    -top: -250px; /* Ajuste este valor conforme necessário */
+    left: 515px; /* Alinha horizontalmente */
+    width: 350px; /* Largura consistente com outras seções */
+    position: absolute; /* Manmargintém a posição absoluta */
+    z-index: 1; /* Garante que o título fique acima da imagem de fundo */
+    position: fixed; /* Mantém a posição fixa na tela */
 
 }
+
+
+
 /* Ajustando a imagem de fundo dos inputs */
 .form {
     margin-top: 185px;
@@ -269,6 +327,15 @@ margin: auto;
     position: absolute;
     z-index: -1; /* Coloca a imagem atrás dos inputs */
 
+
+}
+
+.fundoFinal{
+    margin-top: -35px;
+    left: 295px;
+    width: 800px;
+    z-index: -1; /* Coloca a imagem atrás dos inputs */
+    position:absolute;
 
 }
 

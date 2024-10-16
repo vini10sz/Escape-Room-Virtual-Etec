@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (finalWord === palavraFinalCorreta) {
             finalFeedback.textContent = "Parabéns! Você acertou a palavra final e completou o jogo!";
         } else {
-            finalFeedback.textContent = "Você perdeu o desafio. Não há mais tentativas.";
+            finalFeedback.textContent = "GAME OVER! Não há mais tentativas.";
             finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
         }
     });
