@@ -16,11 +16,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fases com as letras S, P, S, A, A
     let fases = [
-        { pergunta: "Qual é a primeira letra da palavra 'sapo'?", resposta: "s", letra: "S" },
-        { pergunta: "Qual é a primeira letra da palavra 'pato'?", resposta: "p", letra: "P" },
-        { pergunta: "Qual é a primeira letra da palavra 'sol'?", resposta: "s", letra: "S" },
-        { pergunta: "Qual é a primeira letra da palavra 'abacate'?", resposta: "a", letra: "A" },
-        { pergunta: "Qual é a primeira letra da palavra 'amor'?", resposta: "a", letra: "A" }
+        const perguntasRespostas = [
+            const perguntasRespostas = [
+                const perguntasRespostas = [
+                    { pergunta: "Qual é o nome do famoso pintor que criou a obra 'A Última Ceia'?", resposta: "Leonardo da Vinci", letra: "P" }, // "P"
+                    { pergunta: "Qual é o nome do metal precioso que é símbolo de riqueza e é utilizado em joias?", resposta: "ouro", letra: "A" }, // "A"
+                    { pergunta: "Qual é o fenômeno natural que ocorre quando um corpo de água se transforma em vapor?", resposta: "evaporação", letra: "S" }, // "S"
+                    { pergunta: "Qual é o continente conhecido como 'berço da humanidade'?", resposta: "África", letra: "S" }, // "S"
+                    { pergunta: "Qual é o nome da planta que produz as nozes e é conhecida por seu óleo?", resposta: "coco", letra: "A" }, // "A"
+                    { pergunta: "Qual é o nome do famoso cientista que desenvolveu a teoria da relatividade?", resposta: "Einstein", letra: "T" }, // "T"
+                    { pergunta: "Qual é o processo de conversão de um líquido em gás?", resposta: "vaporização", letra: "E" }, // "E"
+                    { pergunta: "Qual é o nome do famoso lago que é o maior do mundo em volume de água?", resposta: "Baikal", letra: "M" }, // "M"
+                    { pergunta: "Qual é o nome do sistema de comunicação utilizado por pessoas surdas?", resposta: "Libras", letra: "P" }, // "P"
+                    { pergunta: "Qual é o doce tradicional brasileiro feito com leite condensado e chocolate?", resposta: "brigadeiro", letra: "O" } // "O"
+                ];
+                
+            ];
+            
+        ];
+        
     ];
 
     let faseAtual = 0;

@@ -71,6 +71,8 @@ body {
     cursor: pointer;
     margin-top: 200;
     margin-left: 50px;
+    position:static;
+
 }
 
 .txtPalavra {
@@ -155,6 +157,7 @@ body {
 
 
 }
+/* Estilos para o container de confeitos */
 
 
 #finalScreen .titulo {
@@ -216,6 +219,7 @@ body {
     position: relative;
     top:50px;
     margin-left: 30px;
+
 }
 
 /* Estilo dos inputs */
@@ -268,6 +272,9 @@ input[type="text"]:hover, input[type="password"]:hover {
 
     margin: auto;
     font-size: 9px;
+    margin-top: 125px; /* Ajuste o valor conforme necessário */
+    position: static;
+
 
 
 }
@@ -283,21 +290,45 @@ margin: auto;
     margin-left: -25px;
     top: 415px; 
     position: absolute;
-    animation: pulse 1.5s infinite; 
-    
+    animation: rotate 1.5s infinite; /* Altera 'pulse' para 'rotate' */
 
 }
-#challenge{  /*perguntas estilos*/
-
-    font-family: 'Press Start 2P';
-    margin-top: 20px;
-    z-index: 2; /* Mantém acima da imagem de fundo */
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
-    color: #000000; /* Cor do texto preto */
-    font-size: 12px;
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg); /* Começa sem rotação */
+    }
+    100% {
+        transform: rotate(360deg); /* Rotaciona completamente */
+    }
+}
+#challenge {
+    position: absolute; /* Remove do fluxo normal */
+    top: 275px; /* Ajuste conforme necessário */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para o centro */
+    font-family: 'Press Start 2P', cursive;
+    z-index: 3;
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+    color: #000000;
+    font-size: 15px;
     text-align: center;
-
+    word-wrap: break-word;
+    max-width: 55%;
 }
+
+
+@media (max-width: 768px) {
+    #challenge {
+        font-size: 10px; /* Diminui a fonte em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    #challenge {
+        font-size: 8px; /* Reduz ainda mais o tamanho da fonte para dispositivos menores */
+    }
+}
+
 .desafio{
 
     font-family: 'Press Start 2P';
@@ -321,9 +352,9 @@ margin: auto;
 }
 
 .fundo{
-    margin-top: -46px;
+    margin-top: -35px;
     left: 285px;
-    width: 780px;
+    width: 800px;
     position: absolute;
     z-index: -1; /* Coloca a imagem atrás dos inputs */
 
@@ -331,7 +362,7 @@ margin: auto;
 }
 
 .fundoFinal{
-    margin-top: -35px;
+    margin-top: -47px;
     left: 295px;
     width: 800px;
     z-index: -1; /* Coloca a imagem atrás dos inputs */
@@ -403,6 +434,8 @@ button {
     margin-left: 150px;
     margin-bottom: -25px;
     font-family: 'Press Start 2P';
+    position:sta;
+
 
 }
     

@@ -31,7 +31,9 @@
 
     <!-- Fases do Jogo -->
     <section id="game" style="display:none;">
+
         <img src="../imgs/fundo.png" class="fundo" alt="t">
+
         <h2 class="desafio">DESAFIO - <span id="faseNumero">FASE 1</span></h2>
         <p id="challenge"></p>
         <form id="gameForm">
@@ -44,17 +46,22 @@
 
         <p id="feedback"></p> 
         <p id="letters">LETRAS OBTIDAS: <span id="letrasObtidas"></span></p>
+        <div id="confeitosContainer"></div> <!-- Container para os confeitos -->
+
     </section>
 
     <!-- Tela Final - Formar a Palavra -->
+
     <section id="finalScreen" style="display:none;">
-        <h2>Parabéns, você completou o jogo!</h2>
-        <p>Essas são as letras que você conseguiu:</p>
+        <img src="../imgs/fundo.png" class="fundoFinal" alt="t">
+
+
+        <p class ="letras">Essas são as letras que você conseguiu:</p>
         <p id="finalLetters"></p>
         <form id="finalForm">
-            <label for="finalWord">Forme a palavra final:</label>
-            <input type="text" id="finalWord" name="finalWord" placeholder="Digite a palavra final">
-            <button class ="verificar" type="submit">Verificar Palavra</button>
+            <label for="finalWord" class="final">Forme a palavra final:</label>
+            <input type="text" class ="txtPalavra"id="finalWord" name="finalWord" placeholder="Digite a palavra final">
+            <button class ="verificar" type="submit">VERIFICAR PALAVRA</button>
         </form>
         <p id="finalFeedback"></p>
     </section>

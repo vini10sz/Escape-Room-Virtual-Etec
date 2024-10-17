@@ -13,16 +13,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalLetters = document.getElementById('finalLetters');
     const finalForm = document.getElementById('finalForm');
     const finalFeedback = document.getElementById('finalFeedback');
+    
 
     let fases = [
-        { pergunta: "Qual é a primeira letra da palavra 'amor'?", resposta: "a", letra: "A" },
-        { pergunta: "Que letra tem um cedilha e se usa em 'açaí'?", resposta: "ç", letra: "Ç" },
-        { pergunta: "Qual é a nona letra do alfabeto?", resposta: "i", letra: "I" },
-        { pergunta: "Qual é a letra que aparece no final da palavra 'pão'?", resposta: "ã", letra: "Ã" },
-        { pergunta: "Qual letra aparece duas vezes em 'imitar'?", resposta: "i", letra: "I" },
-        { pergunta: "Qual a primeira letra da palavra 'mãe'?", resposta: "m", letra: "M" },
-        { pergunta: "Qual a última letra da palavra 'limão'?", resposta: "o", letra: "O" },
-        { pergunta: "Que letra está no meio da palavra 'tempo'?", resposta: "t", letra: "T" }
+        { pergunta: "Qual é o nome do autor da obra 'Dom Casmurro'?", resposta: "Machado de Assis", letra: "M" }, // "M"
+        { pergunta: "Qual é o nome do famoso quadro de Leonardo da Vinci que retrata uma mulher sorridente?", resposta: "Mona Lisa", letra: "O" }, // "O"
+        { pergunta: "Qual é o nome do fenômeno em que a luz é desviada ao passar por um objeto?", resposta: "Refração", letra: "G" }, // "G"
+        { pergunta: "Qual é o nome do filósofo grego conhecido como o pai da lógica?", resposta: "Aristóteles", letra: "O" }, // "O"
+        { pergunta: "Qual é a ciência que estuda os seres vivos e seu ambiente?", resposta: "Biologia", letra: "I" }, // "I"
+        { pergunta: "Qual é o nome do estilo musical que surgiu no início do século XX e é caracterizado pela improvisação?", resposta: "Jazz", letra: "J" }, // "J"
+        { pergunta: "Qual é a capital do Japão?", resposta: "Tóquio", letra: "T" }, // "T"
+        { pergunta: "Qual é o termo para o estudo dos fenômenos climáticos e atmosféricos?", resposta: "Meteorologia", letra: "A" }, // "A"
+        { pergunta: "Qual é a parte do cérebro responsável pelo controle motor e pela coordenação?", resposta: "Cerebelo", letra: "C" }, // "C"
+        { pergunta: "Qual é o nome do primeiro homem a pisar na Lua?", resposta: "Neil Armstrong", letra: "I" } // "I"
     ];
 
     let faseAtual = 0;
@@ -116,6 +119,70 @@ document.addEventListener('DOMContentLoaded', function () {
             finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
         }
     });
+});
+
+// Função para criar e animar confeitos
+function criarConfeitos() {
+    const confeitosContainer = document.getElementById('confeitosContainer');
+
+    // Cria 5 confeitos aleatórios
+    for (let i = 0; i < 5; i++) {
+        const confeito = document.createElement('div');
+        confeito.classList.add('confeito');
+
+        // Define a posição aleatória do confeito
+        const xPos = Math.random() * 100; // Posição horizontal (em porcentagem)
+        const delay = Math.random() * 1; // Atraso aleatório para a animação
+
+        confeito.style.left = `${xPos}%`;
+        confeito.style.animationDelay = `${delay}s`;
+
+        // Adiciona o confeito ao contêiner
+        confeitosContainer.appendChild(confeito);
+
+        // Remove o confeito após a animação
+        setTimeout(() => {
+            confeito.remove();
+        }, 2000); // Tempo total da animação
+    }
+}
+
+// Função para verificar a resposta da fase
+gameForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const answer = document.getElementById('answer').value.toLowerCase();
+    
+    if (answer === fases[faseAtual].resposta) {  // Resposta correta
+        feedbackElement.textContent = "Parabéns! Você completou a fase.";
+        letrasObtidas.push(fases[faseAtual].letra);
+        letrasObtidasElement.textContent = letrasObtidas.join('');
+        clearInterval(timer);
+        
+        // Chama a função para criar confeitos quando a letra é acertada
+        criarConfeitos();
+
+        faseAtual++;
+        carregarFase(faseAtual);
+    } else {  // Resposta incorreta
+        feedbackElement.textContent = "Resposta incorreta. A fase será pulada.";
+        clearInterval(timer);
+        pularFase();
+    }
+});
+
+// Verificar a palavra final (apenas uma tentativa)
+finalForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const finalWord = document.getElementById('finalWord').value.toUpperCase();
+    if (finalWord === palavraFinalCorreta) {
+        finalFeedback.textContent = "Parabéns! Você acertou a palavra final e completou o jogo!";
+
+        // Chama a função para criar confeitos quando a palavra final é acertada
+        criarConfeitos();
+    } else {
+        finalFeedback.textContent = "GAME OVER! Não há mais tentativas.";
+        finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
+    }
 });
 
 

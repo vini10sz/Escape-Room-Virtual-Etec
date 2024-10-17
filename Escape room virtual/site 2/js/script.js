@@ -16,11 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Novas fases com as letras desejadas
     let fases = [
-        { pergunta: "Qual é a primeira letra da palavra 'sol'?", resposta: "s", letra: "S" },
-        { pergunta: "Qual é a primeira letra da palavra 'uva'?", resposta: "u", letra: "U" },
-        { pergunta: "Qual é a primeira letra da palavra 'carro'?", resposta: "c", letra: "C" },
-        { pergunta: "Qual é a primeira letra da palavra 'bola'?", resposta: "b", letra: "B" },
-        { pergunta: "Qual é a primeira letra da palavra 'árvore'?", resposta: "a", letra: "A" }
+        const perguntasRespostas = [
+            { pergunta: "Qual é o nome do animal conhecido como o rei da selva?", resposta: "leão", letra: "B" }, // "B" - O animal é o "B" da palavra "Leão"
+            { pergunta: "Qual é o maior continente do mundo?", resposta: "Ásia", letra: "U" }, // "U" - O continente é a "U" da palavra "Ásia"
+            { pergunta: "Qual fruta é conhecida por ser vermelha ou verde e tem sementes por fora?", resposta: "morango", letra: "S" }, // "S"
+            { pergunta: "Qual é o nome do nosso planeta?", resposta: "Terra", letra: "C" }, // "C" - O planeta é o "C" da palavra "Terra"
+            { pergunta: "Qual é o líquido que bebemos para nos manter hidratados?", resposta: "água", letra: "A" } // "A" - O líquido é a "A" da palavra "Água"
+        ];
+        
     ];
 
     let faseAtual = 0;
