@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalForm = document.getElementById('finalForm');
     const finalFeedback = document.getElementById('finalFeedback');
     
-
     let fases = [
         { pergunta: "Qual é o nome do autor da obra 'Dom Casmurro'?", resposta: "Machado de Assis", letra: "M" }, // "M"
         { pergunta: "Qual é o nome do famoso quadro de Leonardo da Vinci que retrata uma mulher sorridente?", resposta: "Mona Lisa", letra: "O" }, // "O"

@@ -31,43 +31,147 @@ body {
     flex-direction: column;
     position: relative;
 }
-#finalScreen{
-    font-family: 'Press Start 2P';
+#finalForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
+}
+
+#finalWord {
+    display: block;
+    width: 250px;
+    padding: 15px 20px;
+    background-color: #bfbfbf;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    border-radius: 50px;
+    border: 5px solid #000000;
+    text-align: center;
+    box-shadow: 4px 4px 0 #5c5c5c, -4px -4px 0 #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 10px; /* Espaço entre o input e o botão */
+    margin-left: 35px;
+}
+
+.verificar {
+    width: 250px;
+    padding: 15px 20px;
+    background-color: #bfbfbf;
+    color: #000000;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    border-radius: 50px;
+    border: 5px solid #000000;
+    text-align: center;
+    box-shadow: 4px 4px 0 #5c5c5c, -4px -4px 0 #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    margin-top: 200;
+    margin-left: 50px;
+    position:static;
+
+}
+
+.txtPalavra {
+    text-align: center;
+    margin-left:62px;
+    
+
+}
+
+.letras{
+    font-family: 'Press Start 2P';
+    margin-top: 50px;
     z-index: 2; /* Mantém acima da imagem de fundo */
-    animation: pulse 2.5s infinite; 
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    text-shadow: -1px -1px 0 #FFFFE0, 1px -1px 0 #FFFFE0, -1px 1px 0 #FFFFE0, 1px 1px 0 #FFFFE0	; 
     color: #000000; /* Cor do texto preto */
+    border:#e04848;
+    font-size: 18px;
+    text-align: center;
+    margin-left:40px;
+
+
 
 }
-
-#finalform{
-
-
+.parabens {
+    font-family: 'Press Start 2P';
+    position: absolute;
+    z-index: 2; /* Para garantir que fique acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #FF6347, 1px -1px 0 #FF6347, -1px 1px 0 #FF6347, 1px 1px 0 #FF6347;
+    color: #000000;
+    font-size: 22px;
+    text-align: center;
+    white-space: nowrap; /* Não permite quebra de linha */
+    animation: pulse 2.5s infinite;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para o centro do elemento */
+    top: 10px; /* Ajuste este valor conforme necessário para a posição vertical */
 }
+
+
 
 #finalLetters{
 
+    text-shadow: -1px -1px 0 #B22222, 1px -1px 0 #B22222, -1px 1px 0 #B22222, 1px 1px 0 #B22222; 
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    color: #000000; /* Cor do texto preto */
+    border:#e04848;
+    font-size: 20px;
+    text-align: center;
+    margin-left:62px;
+
+
+
 
 }
 
-#finalWord{
+
+.final{
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #8B008B	, 1px -1px 0 #8B008B	, -1px 1px 0 #8B008B	, 1px 1px 0 #8B008B	; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 12px;
+    text-align: center;
+    margin-left:62px;
 
 
 
 }
 
 #finalFeedback {
-
+    font-family: 'Press Start 2P';
+    margin-top: 50px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 12px;
+    text-align: center;
+    margin-left:55px;
 
 
 }
+/* Estilos para o container de confeitos */
 
-.verificar{
 
-
+#finalScreen .titulo {
+    -top: -250px; /* Ajuste este valor conforme necessário */
+    left: 515px; /* Alinha horizontalmente */
+    width: 350px; /* Largura consistente com outras seções */
+    position: absolute; /* Manmargintém a posição absoluta */
+    z-index: 1; /* Garante que o título fique acima da imagem de fundo */
+    position: fixed; /* Mantém a posição fixa na tela */
 
 }
+
+
+
 /* Ajustando a imagem de fundo dos inputs */
 .form {
     margin-top: 185px;
@@ -115,6 +219,7 @@ body {
     position: relative;
     top:50px;
     margin-left: 30px;
+
 }
 
 /* Estilo dos inputs */
@@ -167,6 +272,9 @@ input[type="text"]:hover, input[type="password"]:hover {
 
     margin: auto;
     font-size: 9px;
+    margin-top: 125px; /* Ajuste o valor conforme necessário */
+    position: static;
+
 
 
 }
@@ -182,21 +290,45 @@ margin: auto;
     margin-left: -25px;
     top: 415px; 
     position: absolute;
-    animation: pulse 1.5s infinite; 
-    
+    animation: rotate 1.5s infinite; /* Altera 'pulse' para 'rotate' */
 
 }
-#challenge{  /*perguntas estilos*/
-
-    font-family: 'Press Start 2P';
-    margin-top: 20px;
-    z-index: 2; /* Mantém acima da imagem de fundo */
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
-    color: #000000; /* Cor do texto preto */
-    font-size: 12px;
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg); /* Começa sem rotação */
+    }
+    100% {
+        transform: rotate(360deg); /* Rotaciona completamente */
+    }
+}
+#challenge {
+    position: absolute; /* Remove do fluxo normal */
+    top: 275px; /* Ajuste conforme necessário */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para o centro */
+    font-family: 'Press Start 2P', cursive;
+    z-index: 3;
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+    color: #000000;
+    font-size: 15px;
     text-align: center;
-
+    word-wrap: break-word;
+    max-width: 55%;
 }
+
+
+@media (max-width: 768px) {
+    #challenge {
+        font-size: 10px; /* Diminui a fonte em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    #challenge {
+        font-size: 8px; /* Reduz ainda mais o tamanho da fonte para dispositivos menores */
+    }
+}
+
 .desafio{
 
     font-family: 'Press Start 2P';
@@ -220,12 +352,21 @@ margin: auto;
 }
 
 .fundo{
-    margin-top: -46px;
+    margin-top: -35px;
     left: 285px;
-    width: 780px;
+    width: 800px;
     position: absolute;
     z-index: -1; /* Coloca a imagem atrás dos inputs */
 
+
+}
+
+.fundoFinal{
+    margin-top: -47px;
+    left: 295px;
+    width: 800px;
+    z-index: -1; /* Coloca a imagem atrás dos inputs */
+    position:absolute;
 
 }
 
@@ -293,6 +434,8 @@ button {
     margin-left: 150px;
     margin-bottom: -25px;
     font-family: 'Press Start 2P';
+    position:sta;
+
 
 }
     
