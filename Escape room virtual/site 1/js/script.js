@@ -13,18 +13,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalLetters = document.getElementById('finalLetters');
     const finalForm = document.getElementById('finalForm');
     const finalFeedback = document.getElementById('finalFeedback');
-    
+
     let fases = [
-        { pergunta: "Qual é o nome do autor da obra 'Dom Casmurro'?", resposta: "Machado de Assis", letra: "M" }, // "M"
-        { pergunta: "Qual é o nome do famoso quadro de Leonardo da Vinci que retrata uma mulher sorridente?", resposta: "Mona Lisa", letra: "O" }, // "O"
-        { pergunta: "Qual é o nome do fenômeno em que a luz é desviada ao passar por um objeto?", resposta: "Refração", letra: "G" }, // "G"
-        { pergunta: "Qual é o nome do filósofo grego conhecido como o pai da lógica?", resposta: "Aristóteles", letra: "O" }, // "O"
-        { pergunta: "Qual é a ciência que estuda os seres vivos e seu ambiente?", resposta: "Biologia", letra: "I" }, // "I"
-        { pergunta: "Qual é o nome do estilo musical que surgiu no início do século XX e é caracterizado pela improvisação?", resposta: "Jazz", letra: "J" }, // "J"
-        { pergunta: "Qual é a capital do Japão?", resposta: "Tóquio", letra: "T" }, // "T"
-        { pergunta: "Qual é o termo para o estudo dos fenômenos climáticos e atmosféricos?", resposta: "Meteorologia", letra: "A" }, // "A"
-        { pergunta: "Qual é a parte do cérebro responsável pelo controle motor e pela coordenação?", resposta: "Cerebelo", letra: "C" }, // "C"
-        { pergunta: "Qual é o nome do primeiro homem a pisar na Lua?", resposta: "Neil Armstrong", letra: "I" } // "I"
+        { pergunta: "Qual é o nome do autor da obra 'Dom Casmurro'?", resposta: "Machado de Assis", letra: "M" },
+        { pergunta: "Qual é o nome do fenômeno em que a luz é desviada ao passar por um objeto?", resposta: "Refração", letra: "Ã" },
+        { pergunta: "Qual é o nome do filósofo grego conhecido como o pai da lógica?", resposta: "Aristóteles", letra: "O" },
+        { pergunta: "Qual é a ciência que estuda os seres vivos e seu ambiente?", resposta: "Biologia", letra: "I" },
+        { pergunta: "Qual é a capital do Japão?", resposta: "Tóquio", letra: "T" },
+        { pergunta: "Qual é o termo para o estudo dos fenômenos climáticos e atmosféricos?", resposta: "Meteorologia", letra: "A" },
+        { pergunta: "Qual é a parte do cérebro responsável pelo controle motor e pela coordenação?", resposta: "Cerebelo", letra: "Ç" },
+        { pergunta: "Qual é o nome do primeiro homem a pisar na Lua?", resposta: "Neil Armstrong", letra: "I" }
     ];
 
     let faseAtual = 0;
@@ -75,10 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         const answer = document.getElementById('answer').value.toLowerCase();
         
-        if (answer === fases[faseAtual].resposta) {  // Resposta correta
+        if (answer === fases[faseAtual].resposta.toLowerCase()) {  // Resposta correta
             feedbackElement.textContent = "Parabéns! Você completou a fase.";
             letrasObtidas.push(fases[faseAtual].letra);
-            letrasObtidasElement.textContent = letrasObtidas.join('');
+            letrasObtidasElement.textContent = letrasObtidas.join(' ');  // Use um espaço para separar as letras
+            console.log("Letras obtidas:", letrasObtidas);  // Debug: Verifique as letras obtidas
             clearInterval(timer);
             faseAtual++;
             carregarFase(faseAtual);
@@ -113,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const finalWord = document.getElementById('finalWord').value.toUpperCase();
         if (finalWord === palavraFinalCorreta) {
             finalFeedback.textContent = "Parabéns! Você acertou a palavra final e completou o jogo!";
+            criarConfeitos();  // Chama a função para criar confeitos quando a palavra final é acertada
         } else {
             finalFeedback.textContent = "GAME OVER! Não há mais tentativas.";
             finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
@@ -146,45 +146,7 @@ function criarConfeitos() {
     }
 }
 
-// Função para verificar a resposta da fase
-gameForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const answer = document.getElementById('answer').value.toLowerCase();
-    
-    if (answer === fases[faseAtual].resposta) {  // Resposta correta
-        feedbackElement.textContent = "Parabéns! Você completou a fase.";
-        letrasObtidas.push(fases[faseAtual].letra);
-        letrasObtidasElement.textContent = letrasObtidas.join('');
-        clearInterval(timer);
-        
-        // Chama a função para criar confeitos quando a letra é acertada
-        criarConfeitos();
-
-        faseAtual++;
-        carregarFase(faseAtual);
-    } else {  // Resposta incorreta
-        feedbackElement.textContent = "Resposta incorreta. A fase será pulada.";
-        clearInterval(timer);
-        pularFase();
-    }
-});
-
-// Verificar a palavra final (apenas uma tentativa)
-finalForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const finalWord = document.getElementById('finalWord').value.toUpperCase();
-    if (finalWord === palavraFinalCorreta) {
-        finalFeedback.textContent = "Parabéns! Você acertou a palavra final e completou o jogo!";
-
-        // Chama a função para criar confeitos quando a palavra final é acertada
-        criarConfeitos();
-    } else {
-        finalFeedback.textContent = "GAME OVER! Não há mais tentativas.";
-        finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
-    }
-});
-
-
+// Configuração do servidor express
 const express = require('express');
 const mysql = require('mysql');
 const bcrypt = require('bcrypt');
@@ -238,7 +200,7 @@ app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
 
-
+// Login do usuário
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 

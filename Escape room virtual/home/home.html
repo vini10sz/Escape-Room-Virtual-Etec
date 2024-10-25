@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escape Room</title>
-
     <style>
         @font-face {
             font-family: 'Press Start 2P';
@@ -24,11 +23,14 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            overflow: hidden; /* Evita barras de rolagem */
         }
 
         .container {
             text-align: center;
             position: relative;
+            width: 100%;
+            max-width: 1200px; /* Limite para o contêiner principal */
         }
 
         h1 {
@@ -55,215 +57,144 @@
                          1px 1px 0 #FFFFFF;
             margin-bottom: 20px;
             letter-spacing: 3px;
-            top:450px;
         }
 
         .button {
-    display: inline-block;
-    margin: 25px;
-    padding: 20px 40px;
-    background-color: #bfbfbf;
-    color: #000000;
-    text-decoration: none;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.5em;
-    border-radius: 50px;
-    border: 5px solid #000000;
-    text-align: center;
-    box-shadow: 4px 4px 0 #5c5c5c, -4px -4px 0 #FFFFFF;
-    transition: background-color 0.3s, transform 0.3s; /* Transição suave */
-    position: relative;
-    top: 35px;
-}
+            display: inline-block;
+            margin: 25px;
+            padding: 20px 40px;
+            background-color: #bfbfbf;
+            color: #000000;
+            text-decoration: none;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5em;
+            border-radius: 50px;
+            border: 5px solid #000000;
+            text-align: center;
+            box-shadow: 4px 4px 0 #5c5c5c, -4px -4px 0 #FFFFFF;
+            transition: background-color 0.3s, transform 0.3s; /* Transição suave */
+        }
 
-.button:hover {
-    transform: scale(1.1); /* Aumenta o tamanho do botão */
-    background-color: #a0a0a0; /* Altera a cor de fundo ao passar o mouse */
-}
-
+        .button:hover {
+            transform: scale(1.1); /* Aumenta o tamanho do botão */
+            background-color: #a0a0a0; /* Altera a cor de fundo ao passar o mouse */
+        }
 
         /* Adicionando os elementos do fundo */
         .background-element {
             position: absolute;
-            width: 80px; /* Ajuste o tamanho conforme necessário */
+            width: 10%; /* Use porcentagem para responsividade */
             height: auto;
         }
 
         /* Posição das imagens */
         .nuvem {
-            top: -155px;
-            left: -190px;
-            width: 235px; /* A lua pode ser maior */
-
+            top: -20vh; /* Mantendo a posição relativa ao viewport */
+            left: -15vw; /* Ajuste baseado no viewport */
+            max-width: 235px; /* Limite máximo do tamanho */
         }
 
         .nuvem2 {
-            top: -60px;
-            right: -50px;
-            width: 150px; 
+            top: -8vh;
+            right: -8vw;
+            max-width: 150px;
         }
 
         .stars {
-            top: 100px;
-            left: 880px;
-            width: 60px;
-            animation: pulse 1.5s infinite; 
-
+            top: 10vh;
+            left: 70vw;
+            max-width: 60px;
         }
 
         .stars2 {
-            top: 50px;
-            left: -170px;
-            width: 60px;
-            animation: pulse 1.5s infinite; 
-
+            top: 5vh;
+            left: -15vw;
+            max-width: 60px;
         }
-        .estrela {
-            top: -135px;
-            left: 685px;
-            width: 45px;
-            animation: pulse 1.5s infinite; 
 
+        .estrela {
+            top: -15vh;
+            left: 65vw;
+            max-width: 45px;
         }
 
         .estrela2 {
-            top: 50px;
-            left: -25px;
-            width: 60px;
-            animation: pulse 1.5s infinite; 
-
+            top: 5vh;
+            left: -5vw;
+            max-width: 60px;
         }
 
         .coracao {
-            bottom: 100px;
-            left: 42%; /* Centraliza horizontalmente */
-            transform: translateX(-50%); /* Ajusta a posição para o centro exato */
-            width: 135px;
-            top:320px;
-            animation: pulse 1.5s infinite; 
-
+            bottom: 15vh;
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            max-width: 135px;
         }
 
         .lua {
-            top: -140px;
-            right: -165px;
-            width: 100px; /* maior */
+            top: -20vh;
+            right: -15vw;
+            max-width: 100px;
         }
 
-        .a{
-            top: 180px;
-            left: -85px;
-            width: 60px;
+        /* Adicionando as letras */
+        .a, .b, .c, .e, .p, .z {
+            animation: pulse 1.5s infinite;
+            position: absolute;
+            bottom: 0;
+            width: 5%; /* Use porcentagem para responsividade */
+            max-width: 60px;
+        }
+
+        .a { top: 15vh; left: -10vw; }
+        .z { top: 32vh; right: -5vw; }
+        .e { top: 35vh; left: 0; }
+        .p { top: 10vh; left: 55vw; }
+        .b { top: 7vh; left: 30vw; }
+        .c { top: -5vh; left: 25vw; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .key, .trofeu, .bandeira {
             animation: pulse 1.5s infinite; 
-
+            position: absolute; 
+            bottom: 0; 
+            width: 5%; 
+            max-width: 60px;
         }
-        .z {
-      position: absolute; /* Certifique-se de que está configurado como absoluto */
-      bottom: 0; /* Posiciona na parte inferior */
-      right: 0; /* Posiciona na parte direita */
-      width: 60px; /* Mantém o tamanho original */
-      top:312px;
-      animation: pulse 1.5s infinite; 
 
-}
-.e {
-    
-    position: absolute; 
-    bottom: 0; 
-    left: 0;
-    width: 60px;
-    top: 325px; 
-    animation: pulse 1.5s infinite; 
+        .key { left: 25%; top: 55%; }
+        .trofeu { top: 25vh; left: -20vw; }
+        .bandeira { right: -5vw; top: 25vh; }
 
-}
+        /* Media Queries para ajustes em telas menores */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.5em; }
+            .button { font-size: 1.2em; padding: 15px 30px; }
+        }
 
-.p {
-    position: absolute; 
-    bottom: 0; 
-    left: 552;
-    width: 60px;
-    right: 20px;
-    top: 70px; 
-    animation: pulse 1.5s infinite; 
-
-}
-
-.b{
-    position: absolute; 
-    bottom: 0; 
-    left: 250;
-    width: 60px;
-    right: -175px;
-    top: 55px; 
-    animation: pulse 1.5s infinite; 
-
-}
-.c{
-    position: absolute; 
-    bottom: 0; 
-    left: 300;
-    width: 60px;
-    right: 800px;
-    top: -40px; 
-    animation: pulse 1.5s infinite; 
-
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.key {
-    animation: pulse 1.5s infinite; 
-    position: absolute; 
-    bottom: 0; 
-    left: 250;
-    width: 60px;
-    right: -175px;
-    top: 55px; 
-}
-
-.trofeu {
-    animation: pulse 1.5s infinite; 
-    top: 250px;
-    left: -200px;
-    width: 60px;
-}
-.bandeira {
-    animation: pulse 1.5s infinite; 
-    position: absolute; 
-      bottom: 0; 
-      right: -50; 
-      left:920px;
-      width: 60px; 
-      top:250px;
-}
-/* Se caso ñ funcionar a navegação para os jogos 1, 2 e 3, é só trocar e copiar a url dos index de cada site, e colar de novo.
- Pq varia para cada pc
- <a href="file:///C:/xampp/htdocs/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%201/index2.html" class="button">Jogo 1</a> 
-<a href="file:///C:/xampp/htdocs/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%202/index.html" class="button">Jogo 2</a>
-<a href="file:///C:/xampp/htdocs/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%203/index.html" class="button">Jogo 3</a> */
-
-
+        @media (max-width: 480px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.2em; }
+            .button { font-size: 1em; padding: 10px 20px; }
+            .background-element { width: 15%; } /* Aumenta um pouco o tamanho das imagens */
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Escape Room</h1>
-    <h2>Virtual</h2>  
-    <a href="file:///C:/xampp/htdocs/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%201/index2.html" class="button">Jogo 1</a> 
-    <a href="file:///C:/xampp/htdocs/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%202/index.html" class="button">Jogo 2</a>
-    <a href="file:///C:/xampp/htdocs/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%203/index.html" class="button">Jogo 3</a>
+    <h2>Virtual</h2>
+
+    <a href="file:///C:/xampp/htdocs/Escape%20room%20virtual/site%201/index2.html" class="button">Jogo 1</a>
+    <a href="file:///C:/xampp/htdocs/Escape%20room%20virtual/site%202/index.html" class="button">Jogo 2</a>
+    <a href="file:///C:/xampp/htdocs/Escape%20room%20virtual/site%203/index.html" class="button">Jogo 3</a>
 
     <img src="../imgs/nuvem.png" class="background-element nuvem" alt="Nuvem no céu">
     <img src="../imgs/nuvem2.png" class="background-element nuvem2" alt="Outra nuvem no céu">
@@ -281,9 +212,6 @@
     <img src="../imgs/bandeira.png" class="background-element bandeira" alt="band">
     <img src="../imgs/key.png" class="background-element key" alt="chave">
     <img src="../imgs/trofeu.png" class="background-element trofeu" alt="tro">
-
-
-
 </div>
 
 </body>

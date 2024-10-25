@@ -44,4 +44,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Fecha a conexão
 mysqli_close($con);
+
+$sql = "SELECT * FROM usuarios WHERE email='$email'";
+$result = mysqli_query($con, $sql);
+
+if (mysqli_num_rows($result) == 1) {
+    $usuario = mysqli_fetch_assoc($result);
+    
+    // Verifica se a senha está correta
+    if (password_verify($senha, $usuario['senha'])) {
+        // Login bem-sucedido
+        header("Location: home.html");
+        exit();
+    } else {
+        echo "Email ou senha inválidos.";
+    }
+} else {
+    echo "Email ou senha inválidos.";
+}
+
 ?>

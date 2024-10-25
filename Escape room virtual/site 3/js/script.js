@@ -15,22 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalFeedback = document.getElementById('finalFeedback');
     
     let fases = [
-        { pergunta: "Qual é o maior continente em área territorial?", resposta: "Ásia", letra: "A" }, // "a"
-        { pergunta: "Qual é o rio mais longo do mundo?", resposta: "Rio Nilo", letra: "P" }, // "p"
-        { pergunta: "Quantos minutos há em uma hora e meia?", resposta: "90", letra: "S" }, // "s"
-        { pergunta: "Quem foi o primeiro homem a viajar para o espaço?", resposta: "Yuri Gagarin", letra: "T" }, // "t"
-        { pergunta: "Quem foi o primeiro presidente do Brasil?", resposta: "Marechal Deodoro da Fonseca", letra: "E" }, // "e"
-        { pergunta: "Qual é o elemento químico representado pela letra 'O'na tabela periódica?", resposta: "Oxigênio", letra: "S" }, // "s"
-        { pergunta: "Qual planeta é conhecido como o 'Planeta Vermelho'?", resposta: "Marte", letra: "M" }, // "m"
-        { pergunta: "Quantos dias tem um ano bissexto?", resposta: "366", letra: "P" }, // "p"
-        { pergunta: "Qual é a capital da Austrália?", resposta: "Canberra", letra: "S" }, // "s"
-        { pergunta: "Qual é o maior mamífero do mundo?", resposta: "Baleia-azul", letra: "O" }, // "o"
-
-
-
-       //Qual é a moeda oficial do Japão?
-
-
+        { pergunta: "Qual é o maior continente em área territorial?", resposta: "Ásia", letra: "A" },
+        { pergunta: "Qual é o rio mais longo do mundo?", resposta: "Rio Nilo", letra: "P" },
+        { pergunta: "Quantos minutos há em uma hora e meia?", resposta: "90", letra: "S" },
+        { pergunta: "Qual é o elemento químico representado pela letra 'O' na tabela periódica?", resposta: "Oxigênio", letra: "O" },
+        { pergunta: "Qual é a capital da Austrália?", resposta: "Canberra", letra: "C" }
     ];
 
     let faseAtual = 0;
@@ -79,13 +68,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Função para verificar a resposta da fase
     gameForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        const answer = document.getElementById('answer').value.toLowerCase();
+        const answer = document.getElementById('answer').value.trim().toLowerCase();
         
-        if (answer === fases[faseAtual].resposta) {  // Resposta correta
+        if (answer === fases[faseAtual].resposta.toLowerCase()) {  // Resposta correta
             feedbackElement.textContent = "Parabéns! Você completou a fase.";
             letrasObtidas.push(fases[faseAtual].letra);
-            letrasObtidasElement.textContent = letrasObtidas.join('');
+            letrasObtidasElement.textContent = letrasObtidas.join(' ');  // Adiciona espaço entre as letras
             clearInterval(timer);
+            criarConfeitos();  // Chama a função para criar confeitos
             faseAtual++;
             carregarFase(faseAtual);
         } else {  // Resposta incorreta
@@ -110,15 +100,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function mostrarTelaFinal() {
         gameSection.style.display = 'none';
         finalScreen.style.display = 'block';
-        finalLetters.textContent = letrasObtidas.join(' ');
+        finalLetters.textContent = letrasObtidas.join(' ');  // Adiciona espaço entre as letras
     }
 
     // Verificar a palavra final (apenas uma tentativa)
     finalForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        const finalWord = document.getElementById('finalWord').value.toUpperCase();
+        const finalWord = document.getElementById('finalWord').value.trim().toUpperCase();
         if (finalWord === palavraFinalCorreta) {
             finalFeedback.textContent = "Parabéns! Você acertou a palavra final e completou o jogo!";
+            criarConfeitos();  // Chama a função para criar confeitos
         } else {
             finalFeedback.textContent = "GAME OVER! Não há mais tentativas.";
             finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
@@ -152,45 +143,7 @@ function criarConfeitos() {
     }
 }
 
-// Função para verificar a resposta da fase
-gameForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const answer = document.getElementById('answer').value.toLowerCase();
-    
-    if (answer === fases[faseAtual].resposta) {  // Resposta correta
-        feedbackElement.textContent = "Parabéns! Você completou a fase.";
-        letrasObtidas.push(fases[faseAtual].letra);
-        letrasObtidasElement.textContent = letrasObtidas.join('');
-        clearInterval(timer);
-        
-        // Chama a função para criar confeitos quando a letra é acertada
-        criarConfeitos();
-
-        faseAtual++;
-        carregarFase(faseAtual);
-    } else {  // Resposta incorreta
-        feedbackElement.textContent = "Resposta incorreta. A fase será pulada.";
-        clearInterval(timer);
-        pularFase();
-    }
-});
-
-// Verificar a palavra final (apenas uma tentativa)
-finalForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const finalWord = document.getElementById('finalWord').value.toUpperCase();
-    if (finalWord === palavraFinalCorreta) {
-        finalFeedback.textContent = "Parabéns! Você acertou a palavra final e completou o jogo!";
-
-        // Chama a função para criar confeitos quando a palavra final é acertada
-        criarConfeitos();
-    } else {
-        finalFeedback.textContent = "GAME OVER! Não há mais tentativas.";
-        finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
-    }
-});
-
-
+// Configuração do servidor express
 const express = require('express');
 const mysql = require('mysql');
 const bcrypt = require('bcrypt');
@@ -244,7 +197,7 @@ app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
 
-
+// Login do usuário
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 

@@ -15,14 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalFeedback = document.getElementById('finalFeedback');
     
     let fases = [
-        { pergunta: " Qual é o país mais populoso do mundo?'?", resposta: "China", letra: "A" }, // "a"
+        { pergunta: "Qual é o país mais populoso do mundo?", resposta: "China", letra: "A" }, // "a"
         { pergunta: "Qual é o maior oceano do mundo?", resposta: "Oceano Pacífico", letra: "U" }, // "u"
         { pergunta: "Em que ano o homem pisou na Lua pela primeira vez?", resposta: "1969", letra: "C" }, // "c"
         { pergunta: "Qual é o metal mais abundante na crosta terrestre?", resposta: "Aluminio", letra: "B" }, // "b"
         { pergunta: "Quem pintou a Mona Lisa?", resposta: "Leonardo da Vinci", letra: "S" }, // "s"
-        
     ];
-
 
     let faseAtual = 0;
     let timeLeft = 90;
@@ -70,13 +68,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Função para verificar a resposta da fase
     gameForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        const answer = document.getElementById('answer').value.toLowerCase();
+        const answer = document.getElementById('answer').value.trim().toLowerCase();
         
-        if (answer === fases[faseAtual].resposta) {  // Resposta correta
+        if (answer === fases[faseAtual].resposta.toLowerCase()) {  // Resposta correta
             feedbackElement.textContent = "Parabéns! Você completou a fase.";
             letrasObtidas.push(fases[faseAtual].letra);
-            letrasObtidasElement.textContent = letrasObtidas.join('');
+            letrasObtidasElement.textContent = letrasObtidas.join(' ');  // Adiciona espaço entre as letras
             clearInterval(timer);
+            criarConfeitos();  // Chama a função para criar confeitos quando a letra é acertada
             faseAtual++;
             carregarFase(faseAtual);
         } else {  // Resposta incorreta
@@ -101,15 +100,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function mostrarTelaFinal() {
         gameSection.style.display = 'none';
         finalScreen.style.display = 'block';
-        finalLetters.textContent = letrasObtidas.join(' ');
+        finalLetters.textContent = letrasObtidas.join(' ');  // Adiciona espaço entre as letras
     }
 
     // Verificar a palavra final (apenas uma tentativa)
     finalForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        const finalWord = document.getElementById('finalWord').value.toUpperCase();
+        const finalWord = document.getElementById('finalWord').value.trim().toUpperCase();
         if (finalWord === palavraFinalCorreta) {
             finalFeedback.textContent = "Parabéns! Você acertou a palavra final e completou o jogo!";
+            criarConfeitos();  // Chama a função para criar confeitos quando a palavra final é acertada
         } else {
             finalFeedback.textContent = "GAME OVER! Não há mais tentativas.";
             finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
@@ -143,45 +143,7 @@ function criarConfeitos() {
     }
 }
 
-// Função para verificar a resposta da fase
-gameForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const answer = document.getElementById('answer').value.toLowerCase();
-    
-    if (answer === fases[faseAtual].resposta) {  // Resposta correta
-        feedbackElement.textContent = "Parabéns! Você completou a fase.";
-        letrasObtidas.push(fases[faseAtual].letra);
-        letrasObtidasElement.textContent = letrasObtidas.join('');
-        clearInterval(timer);
-        
-        // Chama a função para criar confeitos quando a letra é acertada
-        criarConfeitos();
-
-        faseAtual++;
-        carregarFase(faseAtual);
-    } else {  // Resposta incorreta
-        feedbackElement.textContent = "Resposta incorreta. A fase será pulada.";
-        clearInterval(timer);
-        pularFase();
-    }
-});
-
-// Verificar a palavra final (apenas uma tentativa)
-finalForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const finalWord = document.getElementById('finalWord').value.toUpperCase();
-    if (finalWord === palavraFinalCorreta) {
-        finalFeedback.textContent = "Parabéns! Você acertou a palavra final e completou o jogo!";
-
-        // Chama a função para criar confeitos quando a palavra final é acertada
-        criarConfeitos();
-    } else {
-        finalFeedback.textContent = "GAME OVER! Não há mais tentativas.";
-        finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
-    }
-});
-
-
+// Configuração do servidor express
 const express = require('express');
 const mysql = require('mysql');
 const bcrypt = require('bcrypt');
@@ -235,7 +197,7 @@ app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
 
-
+// Login do usuário
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 

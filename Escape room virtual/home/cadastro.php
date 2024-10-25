@@ -1,6 +1,3 @@
-
-
-
 <?php
 $host = "localhost";
 $user = "root";
@@ -44,4 +41,12 @@ exit();
 
 // Fecha a conexão
 mysqli_close($con);
+
+// Criptografa a senha
+$senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+
+// Usa prepared statements para evitar SQL injection
+$stmt = $con->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $nome, $email, $senhaCriptografada);
+
 ?>
