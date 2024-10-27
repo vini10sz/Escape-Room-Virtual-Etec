@@ -26,6 +26,40 @@ body {
     height: 100vh;
 }
 
+/* Estilo do título */
+.titulo {
+    margin-left: 100px;
+    font-family: 'Press Start 2P', cursive;
+    color: #000;
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+}
+
+/* Estilo da legenda */
+.sub {
+    font-family: 'Press Start 2P';
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-top: 5px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    margin-left: 45px;
+}
+
+.realize {
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: -2; /* Mantém acima da imagem de fundo */
+    animation: pulse 2.5s infinite; 
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    position: relative;
+    padding: 50px;
+
+}
+
+.tempo{
+    margin-left: 60px;
+}
+
+
 /* Animação de pulso */
 @keyframes pulse {
     0% { transform: scale(1); }
@@ -88,7 +122,14 @@ button, input[type="text"], input[type="password"], .verificar {
     transition: background-color 0.3s, transform 0.3s;
     cursor: pointer;
 }
-
+.timer{
+    font-family: 'Press Start 2P';
+    margin-top: 20px;
+    z-index: 2; /* Mantém acima da imagem de fundo */
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; /* Contorno branco */
+    color: #000000; /* Cor do texto preto */
+    font-size: 15px;
+}
 /* Estilos do botão */
 button[type="submit"] {
     background-color: #007bff;
@@ -119,13 +160,13 @@ button[type="submit"]:hover {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .titulo { width: 280px; }
+    .titulo { width: 280px; margin-left: 140px;  }
     .fundo, .fundoFinal { width: 600px; }
     #finalLetters, .desafio, #challenge, #letters, #timer { font-size: 14px; }
 }
 
 @media (max-width: 768px) {
-    .titulo, .fundo, .fundoFinal { width: 100%; margin-top: 10px; }
+    .titulo { width: 280px; margin-left:30px;  }
     #finalWord, .verificar, #skipBtn, .enviar { max-width: 80%; }
     #challenge, #letters, #timer, .desafio, #finalLetters { font-size: 10px; text-align: center; }
     .realize, .sub, .user, .senha, .final, #finalFeedback {
