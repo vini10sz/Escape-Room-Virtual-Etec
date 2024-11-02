@@ -90,13 +90,13 @@
         /* Posição das imagens */
         .nuvem {
             top: -20vh; /* Mantendo a posição relativa ao viewport */
-            left: -15vw; /* Ajuste baseado no viewport */
+            left: 15vw; /* Ajuste baseado no viewport */
             max-width: 235px; /* Limite máximo do tamanho */
         }
 
         .nuvem2 {
             top: -8vh;
-            right: -8vw;
+            right: 3vw;
             max-width: 150px;
         }
 
@@ -125,10 +125,10 @@
         }
 
         .coracao {
-            bottom: 15vh;
             left: 50%;
             transform: translateX(-50%); /* Centraliza horizontalmente */
             max-width: 135px;
+            margin-top: 110px;
         }
 
         .lua {
@@ -146,12 +146,13 @@
             max-width: 60px;
         }
 
-        .a { top: 15vh; left: -10vw; }
-        .z { top: 32vh; right: -5vw; }
+        .a { top: -10vh; left: 85vw; }
+        .z { top: 10vh; right: 5vw; }
         .e { top: 35vh; left: 0; }
-        .p { top: 10vh; left: 55vw; }
-        .b { top: 7vh; left: 30vw; }
-        .c { top: -5vh; left: 25vw; }
+        .p { top: 52vh; left: 55vw; }
+        .c { top: -12vh; left: 5px; }
+        .b { top: 55vh; left: 120px; }
+
 
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -167,9 +168,9 @@
             max-width: 60px;
         }
 
-        .key { left: 25%; top: 55%; }
+        .key { left: 5%; top: 40%; }
         .trofeu { top: 25vh; left: -20vw; }
-        .bandeira { right: -5vw; top: 25vh; }
+        .bandeira { right: 5vw; top: 40vh; }
 
         /* Media Queries para ajustes em telas menores */
         @media (max-width: 768px) {
@@ -192,9 +193,9 @@
     <h1>Escape Room</h1>
     <h2>Virtual</h2>
 
-    <a href="file:///C:/xampp/htdocs/Escape%20room%20virtual/site%201/index2.html" class="button">Jogo 1</a>
-    <a href="file:///C:/xampp/htdocs/Escape%20room%20virtual/site%202/index.html" class="button">Jogo 2</a>
-    <a href="file:///C:/xampp/htdocs/Escape%20room%20virtual/site%203/index.html" class="button">Jogo 3</a>
+    <a href="file:///C:/Users/izabe/OneDrive/Área%20de%20Trabalho/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%201/index2.html" class="button">Jogo 1</a>
+    <a href="file:///C:/Users/izabe/OneDrive/Área%20de%20Trabalho/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%202/index.html" class="button">Jogo 2</a>
+    <a href="file:///C:/Users/izabe/OneDrive/Área%20de%20Trabalho/Escape-Room-Virtual-Etec/Escape%20room%20virtual/site%203/index.html" class="button">Jogo 3</a>
 
     <img src="../imgs/nuvem.png" class="background-element nuvem" alt="Nuvem no céu">
     <img src="../imgs/nuvem2.png" class="background-element nuvem2" alt="Outra nuvem no céu">
@@ -209,6 +210,8 @@
     <img src="../imgs/p.png" class="background-element p" alt="pp">
     <img src="../imgs/e.png" class="background-element e" alt="ee">
     <img src="../imgs/z.png" class="background-element z" alt="zz">
+    <img src="../imgs/b.png" class="background-element b" alt="bb">
+
     <img src="../imgs/bandeira.png" class="background-element bandeira" alt="band">
     <img src="../imgs/key.png" class="background-element key" alt="chave">
     <img src="../imgs/trofeu.png" class="background-element trofeu" alt="tro">

@@ -24,34 +24,34 @@
             <input type="text" id="username" name="username" required>
             <label class="senha" for="password">SENHA</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit">ENTRAR</button>
+            <button class="entrar" type="submit">ENTRAR</button>
         </form>
     </section>
 
     <!-- Fases do Jogo -->
     <section id="game" style="display:none;">
-
-
         <h2 class="desafio">DESAFIO - <span id="faseNumero">FASE 1</span></h2>
         <p id="challenge"></p>
         <form id="gameForm">
             <input type="text" id="answer" name="answer" placeholder="Digite a resposta">
-            <button class = "enviar "type="submit">ENVIAR RESPOSTA</button>
+            <button class="enviar" type="submit">Enviar Resposta</button>
             <button id="skipBtn">Pular Fase</button>
         </form>
-        <img src="../imgs/TEMPO.png" class="tempo" alt="tem">
-        <p id="timer">TEMPO RESTANTE: <span id="timeLeft">90</span> SEGUNDOS</p>         
-
-        <p id="feedback"></p> 
+        
+        <!-- Timer container to align image and text -->
+        <div class="timer-container">
+            <img src="../imgs/TEMPO.png" class="tempo" alt="Icone Tempo">
+            <p id="timer">TEMPO RESTANTE: <span id="timeLeft">90</span> SEGUNDOS</p>
+        </div>
+    
+        <p id="feedback"></p>
         <p id="letters">LETRAS OBTIDAS: <span id="letrasObtidas"></span></p>
-        <div id="confeitosContainer"></div> <!-- Container para os confeitos -->
-
+        <div id="confeitosContainer"></div>
     </section>
 
     <!-- Tela Final - Formar a Palavra -->
 
     <section id="finalScreen" style="display:none;">
-        <img src="../imgs/fundo.png" class="fundoFinal" alt="t">
 
 
         <p class ="letras">Essas são as letras que você conseguiu:</p>

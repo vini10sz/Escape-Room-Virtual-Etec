@@ -146,6 +146,27 @@ function criarConfeitos() {
     }
 }
 
+// ocultar conteudo
+document.addEventListener('DOMContentLoaded', function() {
+    const realizeTitle = document.querySelector('.realize');
+    const gameSection = document.getElementById('game');
+    const finalScreen = document.getElementById('finalScreen');
+    const loginForm = document.getElementById('loginForm');
+
+    // Esconder o título "FAÇA O CADASTRO PARA INICIAR O JOGO!" quando o usuário acessa outras sections
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Previne o envio do formulário
+        realizeTitle.style.display = 'none';
+        gameSection.style.display = 'block';
+    });
+
+    // Lógica para mostrar/ocultar "realize" nas sections de perguntas ou tela final
+    if (gameSection.style.display === 'block' || finalScreen.style.display === 'block') {
+        realizeTitle.style.display = 'none';
+    }
+});
+
+
 // Configuração do servidor express
 const express = require('express');
 const mysql = require('mysql');
