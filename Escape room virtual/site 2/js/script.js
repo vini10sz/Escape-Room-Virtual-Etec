@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
     
     let fases = [
         { pergunta: "Qual é o país mais populoso do mundo?", resposta: "China", letra: "A" }, // "a"
-        { pergunta: "Qual é o maior oceano do mundo?", resposta: "Oceano Pacífico", letra: "U" }, // "u"
+        { pergunta: "Qual animal é conhecido como 'Rei da Selva'?", resposta: "Leão", letra: "U" }, // "u"
         { pergunta: "Em que ano o homem pisou na Lua pela primeira vez?", resposta: "1969", letra: "C" }, // "c"
-        { pergunta: "Qual é o metal mais abundante na crosta terrestre?", resposta: "Aluminio", letra: "B" }, // "b"
-        { pergunta: "Quem pintou a Mona Lisa?", resposta: "Leonardo da Vinci", letra: "S" }, // "s"
+        { pergunta: "Qual é o principal ingrediente do guacamole?", resposta: "Abacate", letra: "B" }, // "b"
+        { pergunta: "Qual é a cor do sangue oxigenado?", resposta: "Vermelho", letra: "S" }, // "s"
     ];
 
     let faseAtual = 0;

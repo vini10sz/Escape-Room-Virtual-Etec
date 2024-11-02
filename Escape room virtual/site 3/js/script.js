@@ -18,15 +18,15 @@ document.addEventListener('DOMContentLoaded', function () {
         { pergunta: "Qual é o maior continente em área territorial?", resposta: "Ásia", letra: "A" },
         { pergunta: "Qual é o rio mais longo do mundo?", resposta: "Rio Nilo", letra: "P" },
         { pergunta: "Quantos minutos há em uma hora e meia?", resposta: "90", letra: "S" },
-        { pergunta: "Qual é o elemento químico representado pela letra 'O' na tabela periódica?", resposta: "Oxigênio", letra: "O" },
-        { pergunta: "Qual é a capital da Austrália?", resposta: "Canberra", letra: "C" }
+        { pergunta: "Qual é o elemento químico representado pela letra 'O' na tabela periódica?", resposta: "Oxigênio", letra: "A" },
+        { pergunta: "Em que continente fica o Egito?", resposta: "África", letra: "S" }
     ];
 
     let faseAtual = 0;
     let timeLeft = 90;
     let timer;
     let letrasObtidas = [];
-    const palavraFinalCorreta = "PASSATEMPO";
+    const palavraFinalCorreta = "PASSA";
 
     // Função para começar o jogo após login
     loginForm.addEventListener('submit', function (e) {

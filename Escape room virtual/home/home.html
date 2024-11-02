@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escape Room</title>
+    <link rel="icon" href="../imgs/key.png" type="image/x-icon">
     <style>
         @font-face {
             font-family: 'Press Start 2P';
@@ -11,26 +12,27 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('../imgs/background.png');
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            color: #ecf0f1;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            overflow: hidden; /* Evita barras de rolagem */
-        }
+    font-family: 'Arial', sans-serif;
+    background-image: url('../imgs/background.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    color: #ecf0f1;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Remove a rolagem e oculta o conteúdo que ultrapassa */
+}
+
 
         .container {
             text-align: center;
             position: relative;
             width: 100%;
-            max-width: 1200px; /* Limite para o contêiner principal */
+            max-width: 1200px; 
+
         }
 
         h1 {
@@ -85,6 +87,7 @@
             position: absolute;
             width: 10%; /* Use porcentagem para responsividade */
             height: auto;
+
         }
 
         /* Posição das imagens */
@@ -125,8 +128,8 @@
         }
 
         .estrela2 {
-            top: 5vh;
-            left: 13vw;
+            top: -2vh;
+            left: 5vw;
             max-width: 60px;
             animation: pulse 1.5s infinite;
 
@@ -141,7 +144,7 @@
 
         .lua {
             top: -20vh;
-            right: -15vw;
+            right: 25vw;
             max-width: 100px;
         }
 
@@ -157,9 +160,9 @@
         .a { top: -20vh; left: 85vw; }
         .z { top: 10vh; right: 5vw; }
         .e { top: 35vh; left: 0; }
-        .p { top: 52vh; left: 55vw; }
+        .p { top: 25vh; left: 60vw; }
         .c { top: -12vh; left: 5px; }
-        .b { top: 55vh; left: 120px; }
+        .b { top: 35vh; left: 35vw; }
 
 
         @keyframes pulse {
@@ -182,15 +185,15 @@
     max-width: 60px;
 }
 
-.key { left: 5%; top: 40%; animation: pulse 1.5s infinite, tremula 1s ease-in-out infinite; /* Adiciona a nova animação */
+.key { left: 5%; top: 40%; animation: pulse 1.5s infinite, tremula 1s ease-in-out infinite;
 }
-.trofeu { top: 25vh; left: -20vw; }
+.trofeu { top: 25vh; left: -12vw; }
 
 .bandeira {
     right: 3vw;
     top: 40vh;
     transform: rotate(-15deg);
-    animation: pulse 1.5s infinite, tremula 1s ease-in-out infinite; /* Adiciona a nova animação */
+    animation: pulse 1.5s infinite, tremula 1s ease-in-out infinite; 
 }
 
         /* Media Queries para ajustes em telas menores */
@@ -228,10 +231,8 @@
     <img src="../imgs/estrela.png" class="background-element estrela2" alt="Outra pequena estrela brilhante">
     <img src="../imgs/a.png" class="background-element a" alt="aa">
     <img src="../imgs/c.png" class="background-element c" alt="cc">
-    <img src="../imgs/p.png" class="background-element p" alt="pp">
     <img src="../imgs/e.png" class="background-element e" alt="ee">
     <img src="../imgs/z.png" class="background-element z" alt="zz">
-    <img src="../imgs/b.png" class="background-element b" alt="bb">
 
     <img src="../imgs/bandeira.png" class="background-element bandeira" alt="band">
     <img src="../imgs/key.png" class="background-element key" alt="chave">
