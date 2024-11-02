@@ -104,24 +104,32 @@
             top: 10vh;
             left: 70vw;
             max-width: 60px;
+            animation: pulse 1.5s infinite;
+
         }
 
         .stars2 {
-            top: 5vh;
-            left: -15vw;
+            top: -20vh;
+            left: 46vw;
             max-width: 60px;
+            animation: pulse 1.5s infinite;
+
         }
 
         .estrela {
             top: -15vh;
-            left: 65vw;
+            left: 68vw;
             max-width: 45px;
+            animation: pulse 1.5s infinite;
+
         }
 
         .estrela2 {
             top: 5vh;
-            left: -5vw;
+            left: 13vw;
             max-width: 60px;
+            animation: pulse 1.5s infinite;
+
         }
 
         .coracao {
@@ -146,7 +154,7 @@
             max-width: 60px;
         }
 
-        .a { top: -10vh; left: 85vw; }
+        .a { top: -20vh; left: 85vw; }
         .z { top: 10vh; right: 5vw; }
         .e { top: 35vh; left: 0; }
         .p { top: 52vh; left: 55vw; }
@@ -160,17 +168,30 @@
             100% { transform: scale(1); }
         }
 
-        .key, .trofeu, .bandeira {
-            animation: pulse 1.5s infinite; 
-            position: absolute; 
-            bottom: 0; 
-            width: 5%; 
-            max-width: 60px;
-        }
+        @keyframes tremula {
+    0% { transform: rotate(-15deg) translateY(0); }
+    50% { transform: rotate(-10deg) translateY(-3px); }
+    100% { transform: rotate(-15deg) translateY(0); }
+}
 
-        .key { left: 5%; top: 40%; }
-        .trofeu { top: 25vh; left: -20vw; }
-        .bandeira { right: 5vw; top: 40vh; }
+.key, .trofeu, .bandeira {
+    animation: pulse 1.5s infinite; 
+    position: absolute; 
+    bottom: 0; 
+    width: 5%; 
+    max-width: 60px;
+}
+
+.key { left: 5%; top: 40%; animation: pulse 1.5s infinite, tremula 1s ease-in-out infinite; /* Adiciona a nova animação */
+}
+.trofeu { top: 25vh; left: -20vw; }
+
+.bandeira {
+    right: 3vw;
+    top: 40vh;
+    transform: rotate(-15deg);
+    animation: pulse 1.5s infinite, tremula 1s ease-in-out infinite; /* Adiciona a nova animação */
+}
 
         /* Media Queries para ajustes em telas menores */
         @media (max-width: 768px) {
