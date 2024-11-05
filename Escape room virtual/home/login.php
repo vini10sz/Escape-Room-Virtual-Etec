@@ -1,66 +1,55 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$base = "escape_room";
+include('conexao.php');
+session_start();
+$erro = ''; // Variável para armazenar a mensagem de erro
 
-// Conecta ao banco de dados
-$con = mysqli_connect($host, $user, $pass, $base);
-
-// Verifica a conexão
-if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verifica se 'email' e 'senha' estão definidos
-    if (isset($_POST['email']) && isset($_POST['senha'])) {
-        // Sanitiza os dados de entrada
-        $email = mysqli_real_escape_string($con, $_POST['email']);
-        $senha = mysqli_real_escape_string($con, $_POST['senha']);
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
-        // Verifica se os campos estão preenchidos
-        if (empty($email) || empty($senha)) {
-            echo "Por favor, preencha todos os campos.";
+    // Verificar se o usuário existe
+    $sql = "SELECT id, senha FROM usuarios WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($id, $hashed_password);
+
+    if ($stmt->num_rows > 0) {
+        $stmt->fetch();
+        // Verificar a senha
+        if (password_verify($senha, $hashed_password)) {
+            $_SESSION['id'] = $id;
+            header("Location: home.html"); // Redireciona para a página home.html
+            exit();
         } else {
-            // Consulta para verificar as credenciais
-            $sql = "SELECT * FROM usuarios WHERE email='$email' AND senha='$senha'";
-            $result = mysqli_query($con, $sql);
-
-            if (mysqli_num_rows($result) == 1) {
-                // Login bem-sucedido
-                header("Location: home.html");
-                exit();
-            } else {
-                // Credenciais inválidas
-                echo "Email ou senha inválidos.";
-            }
+            $erro = "Senha incorreta.";
         }
     } else {
-        echo "Por favor, preencha todos os campos.";
+        $erro = "Usuário não encontrado.";
     }
+    $stmt->close();
 }
-
-// Fecha a conexão
-mysqli_close($con);
-
-$sql = "SELECT * FROM usuarios WHERE email='$email'";
-$result = mysqli_query($con, $sql);
-
-if (mysqli_num_rows($result) == 1) {
-    $usuario = mysqli_fetch_assoc($result);
-    
-    // Verifica se a senha está correta
-    if (password_verify($senha, $usuario['senha'])) {
-        // Login bem-sucedido
-        header("Location: home.html");
-        exit();
-    } else {
-        echo "Email ou senha inválidos.";
-    }
-} else {
-    echo "Email ou senha inválidos.";
-}
-
+$conn->close();
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login de Usuário</h2>
+    <div style="color: red;"><?php echo $erro; ?></div>
+    <form method="POST" action="login.php">
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label for="senha">Senha:</label><br>
+        <input type="password" name="senha" required><br><br>
+
+        <button type="submit">Entrar</button>
+    </form>
+</body>
+</html>

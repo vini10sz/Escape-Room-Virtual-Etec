@@ -1,20 +1,14 @@
 <?php
+$servername = "localhost"; // Nome do servidor
+$username = "root";        // Nome de usuário do banco de dados
+$password = "root2023";            // Senha do banco de dados
+$dbname = "escape_room";   // Nome do banco de dados
 
-$host = "localhost";
-$user = "root";
-$pass = ""; // Substitua pela sua senha do MySQL
-$base = "escape_room";
+// Conexão com o banco de dados
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Criar uma conexão com o banco de dados
-$conn = new mysqli($host, $user, $pass, $base);
-
-// Verificar a conexão
-
+// Verificar conexão
 if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
+    die("Falha na conexão: " . $conn->connect_error);
 }
-
-// Definir o conjunto de caracteres para utf8 (opcional)
-$conn->set_charset("utf8");
-
 ?>
