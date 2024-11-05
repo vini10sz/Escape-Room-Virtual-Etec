@@ -4,31 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faça seu cadastro!</title>
-
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="icon" href="../imgs/key.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <img src="../imgs/titulo.png" class="titulo" alt="tit">
+
 <div class="form">
+    <h2 class='realize'>Faça o Cadastro para Jogar</h2>
 
-       <!-- Cadastro -->
-
-
-    <form action="cadastro.php" name= "formCadastro" method="POST">
-    <h2>Faça o Cadastro para Jogar</h2>
+    <!-- Cadastro -->
+    <form action="cadastro.php" name="formCadastro" method="POST">
         <label for="username">Nome de Usuário:</label>
         <input type="text" id="username" name="nome" required>
-        <label for="password">Email:</label>
-        <input type="text" id="password" name="email" required>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="senha" required>
-        <button type="submit">Cadastrar</button>
-
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+        <button type="submit" class="enviar">Cadastrar</button>
     </form>
 
     <div class="divConta">
-        <span class="txtConta">Já tem conta? <a class="txtConectar" href="login.php">Conecte-se</a>
-      </div>
-</div></body>
+        <span class="txtConta">Já tem conta? <a class="txtConectar" href="login.php">Conecte-se!</a></span>
+    </div>
+</div>
+</body>
 </html>
-

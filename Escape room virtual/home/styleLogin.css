@@ -1,0 +1,174 @@
+body {
+    background-image: url('../imgs/background.png');
+    background-size: cover;
+    overflow: hidden; /* Evita barras de rolagem */
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3em;
+    color: #000000;
+    text-shadow: 3px 3px 0 #5c5c5c,
+                 -1px -1px 0 #FFFFFF,
+                 1px -1px 0 #FFFFFF,
+                 -1px 1px 0 #FFFFFF,
+                 1px 1px 0 #FFFFFF;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2em;
+    color: #ffc800;
+    text-shadow: 2px 2px 0 #5c5c5c,
+                 -1px -1px 0 #FFFFFF,
+                 1px -1px 0 #FFFFFF,
+                 -1px 1px 0 #FFFFFF,
+                 1px 1px 0 #FFFFFF;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('../fonts/PressStart2P-Regular.ttf');
+}
+
+.form {
+    background-color: #a5a5a5;
+    border-radius: 0; /* Mantendo o estilo pixelado */
+    padding: 15px;
+    display: flex;
+    flex-direction: column; /* Garante que os filhos fiquem em coluna */
+    align-items: center;
+    gap: 15px; /* Espaçamento entre os inputs */
+    text-align: center;
+    border: 4px solid #000000; /* Borda preta sólida */
+    box-shadow: 4px 4px 0 #FFFFFF, 8px 8px 0 #000000; /* Sombra pixelada em branco e preto */
+    margin: auto;
+    width: 90%; /* Ajusta a largura do formulário */
+    max-width: 400px; /* Largura máxima do formulário */
+}
+
+.realize {
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
+}
+
+label {
+    color: #000000;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    margin-bottom: 3px;
+    display: flex;
+    flex-direction: column; /* Garante que os filhos fiquem em coluna */
+}
+
+input {
+    padding: 10px 20px;
+    width: 100%; /* Largura total do input */
+    max-width: 250px; /* Largura máxima do input */
+    font-size: 0.9em;
+    font-family: 'Press Start 2P', cursive;
+    color: #000000;
+    background-color: #bfbfbf;
+    border: 4px solid #000000;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 3px 3px 0 #5c5c5c, -3px -3px 0 #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+input:focus {
+    background-color: #a0a0a0;
+    transform: scale(1.05);
+    outline: none;
+}
+
+button {
+    display: inline-block;
+    margin: 15px;
+    padding: 10px 25px;
+    background-color: #bfbfbf;
+    color: #1c071d;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    border-radius: 25px;
+    border: 4px solid #000000;
+    text-align: center;
+    box-shadow: 3px 3px 0 #5c5c5c, -3px -3px 0 #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #7c80af;
+    transform: scale(1.1);
+}
+
+.divConta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.txtConta {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    color: #000;   
+}
+
+.txtConectar {
+    font-family: 'Press Start 2P', cursive;
+    color: #520081;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease; /* Adiciona uma transição suave */
+    margin-bottom: 25px; /* Ajuste este valor para aumentar o espaço */
+}
+
+/* cadastrar */
+
+.txtConectar:hover {
+    color: #6e4b6e;
+    transform: scale(2.0); /* Ajustado para um zoom mais visível */
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    .form {
+        width: 95%; /* Ajusta para telas menores */
+        padding: 10px; /* Diminui o padding */
+    }
+
+    input, button {
+        width: 90%; /* Largura ajustada para inputs e botões */
+        max-width: none; /* Remove a largura máxima */
+    }
+}
+
+@media (max-width: 480px) {
+    .realize {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    input, button {
+        padding: 8px 16px; /* Diminui o padding */
+    }
+}
+
+@media (min-width: 1920px) and (max-width: 1020px) {
+    .form {
+        margin-top: 10px; /* Ajusta a margem superior do formulário */
+    }
+}

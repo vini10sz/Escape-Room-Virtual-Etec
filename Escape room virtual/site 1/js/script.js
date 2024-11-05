@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
     const gameSection = document.getElementById('game');
     const loginSection = document.getElementById('login');
-    const gameForm = document.getElementById('gameForm');
-    const skipBtn = document.getElementById('skipBtn');
+    const startBtn = document.getElementById('startBtn');
+    const waitingMessage = document.getElementById('waitingMessage');
     const timerElement = document.getElementById('timeLeft');
     const feedbackElement = document.getElementById('feedback');
     const challengeElement = document.getElementById('challenge');
@@ -31,13 +31,22 @@ document.addEventListener('DOMContentLoaded', function () {
     let letrasObtidas = [];
     const palavraFinalCorreta = "JOGO IMITAÇÃO";
 
-    // Função para começar o jogo após login
-    loginForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        loginSection.style.display = 'none';
-        gameSection.style.display = 'block';
-        carregarFase(faseAtual);
-        startTimer();
+    // Lógica do botão "Estou pronto"
+    startBtn.addEventListener('click', function () {
+        startBtn.style.display = 'none';  // Esconder o botão "Estou pronto"
+        waitingMessage.style.display = 'block';  // Mostrar a mensagem "Aguardando para começar..."
+        let countDown = 5;
+        const countdownInterval = setInterval(function () {
+            waitingMessage.textContent = `Aguarde... Jogo começando em ${countDown} segundos`;
+            countDown--;
+            if (countDown < 0) {
+                clearInterval(countdownInterval);
+                loginSection.style.display = 'none';  // Esconde a seção de login
+                gameSection.style.display = 'block';  // Mostra a seção de jogo
+                carregarFase(faseAtual);
+                startTimer();  // Inicia o cronômetro do jogo
+            }
+        }, 1000);
     });
 
     // Função do cronômetro
@@ -69,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Função para verificar a resposta da fase
-    gameForm.addEventListener('submit', function (e) {
+    document.getElementById('gameForm').addEventListener('submit', function (e) {
         e.preventDefault();
         const answer = document.getElementById('answer').value.toLowerCase();
         
@@ -89,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Função para pular a fase
-    skipBtn.addEventListener('click', function () {
+    document.getElementById('skipBtn').addEventListener('click', function () {
         pularFase();
     });
 
@@ -118,129 +127,4 @@ document.addEventListener('DOMContentLoaded', function () {
             finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
         }
     });
-});
-
-// Função para criar e animar confeitos
-function criarConfeitos() {
-    const confeitosContainer = document.getElementById('confeitosContainer');
-
-    // Cria 5 confeitos aleatórios
-    for (let i = 0; i < 5; i++) {
-        const confeito = document.createElement('div');
-        confeito.classList.add('confeito');
-
-        // Define a posição aleatória do confeito
-        const xPos = Math.random() * 100; // Posição horizontal (em porcentagem)
-        const delay = Math.random() * 1; // Atraso aleatório para a animação
-
-        confeito.style.left = `${xPos}%`;
-        confeito.style.animationDelay = `${delay}s`;
-
-        // Adiciona o confeito ao contêiner
-        confeitosContainer.appendChild(confeito);
-
-        // Remove o confeito após a animação
-        setTimeout(() => {
-            confeito.remove();
-        }, 2000); // Tempo total da animação
-    }
-}
-
-// ocultar conteudo
-document.addEventListener('DOMContentLoaded', function() {
-    const realizeTitle = document.querySelector('.realize');
-    const gameSection = document.getElementById('game');
-    const finalScreen = document.getElementById('finalScreen');
-    const loginForm = document.getElementById('loginForm');
-
-    // Esconder o título "FAÇA O CADASTRO PARA INICIAR O JOGO!" quando o usuário acessa outras sections
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Previne o envio do formulário
-        realizeTitle.style.display = 'none';
-        gameSection.style.display = 'block';
-    });
-
-    // Lógica para mostrar/ocultar "realize" nas sections de perguntas ou tela final
-    if (gameSection.style.display === 'block' || finalScreen.style.display === 'block') {
-        realizeTitle.style.display = 'none';
-    }
-});
-
-
-// Configuração do servidor express
-const express = require('express');
-const mysql = require('mysql');
-const bcrypt = require('bcrypt');
-const bodyParser = require('body-parser');
-
-const app = express();
-const port = 3000;
-
-// Configurar middleware para lidar com JSON
-app.use(bodyParser.json());
-
-// Configurar conexão com o banco de dados
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',  // Sua senha do MySQL
-    database: 'escape_room'
-});
-
-db.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('MySQL conectado...');
-});
-
-// Endpoint para cadastrar usuário
-app.post('/register', async (req, res) => {
-    const { username, password } = req.body;
-
-    // Verificar se o nome de usuário já existe
-    db.query('SELECT * FROM usuarios WHERE username = ?', [username], async (error, results) => {
-        if (results.length > 0) {
-            return res.status(400).send('Nome de usuário já existe');
-        }
-
-        // Criptografar a senha
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Inserir novo usuário no banco de dados
-        db.query('INSERT INTO usuarios (username, password) VALUES (?, ?)', [username, hashedPassword], (error, results) => {
-            if (error) {
-                return res.status(500).send('Erro ao registrar usuário');
-            }
-            res.status(201).send('Usuário registrado com sucesso');
-        });
-    });
-});
-
-app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
-});
-
-// Login do usuário
-document.getElementById('loginForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    try {
-        const response = await fetch('http://localhost:3000/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, password })
-        });
-
-        const data = await response.text();
-        alert(data);  // Mostra mensagem de sucesso ou erro
-    } catch (error) {
-        console.error('Erro:', error);
-        alert('Erro ao registrar usuário');
-    }
 });

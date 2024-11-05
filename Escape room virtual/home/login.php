@@ -37,11 +37,22 @@ $conn->close();
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecte-se</title>
+    <link rel="icon" href="../imgs/key.png" type="image/x-icon">
+    <link rel="stylesheet" href="styleLogin.css"> 
 </head>
 <body>
-    <h2>Login de Usuário</h2>
-    <div style="color: red;"><?php echo $erro; ?></div>
+<h1>Escape Room</h1>
+<h2>Virtual</h2>
+<div class="form">
+
+    <h2 class='realize'>Faça o Login para Jogar!</h2>
+
+    <div style="color: red; font-size: 1em; font-family: 'Press Start 2P', cursive;">
+        <?php echo $erro; ?>
+    </div>
+
     <form method="POST" action="login.php">
         <label for="email">Email:</label><br>
         <input type="email" name="email" required><br><br>
@@ -49,7 +60,12 @@ $conn->close();
         <label for="senha">Senha:</label><br>
         <input type="password" name="senha" required><br><br>
 
-        <button type="submit">Entrar</button>
+        <button type="submit" class="enviar">Entrar</button>
     </form>
+
+    <div class="divConta">
+        <span class="txtConta">Ainda não tem conta? <a class="txtConectar" href="index.html">Cadastre-se!</a></span>
+    </div>
+</div>
 </body>
 </html>
