@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalLetters = document.getElementById('finalLetters');
     const finalForm = document.getElementById('finalForm');
     const finalFeedback = document.getElementById('finalFeedback');
+    const startBtn = document.getElementById('startBtn');
+    const waitingMessage = document.getElementById('waitingMessage');
     
     let fases = [
         { pergunta: "Qual é o país mais populoso do mundo?", resposta: "China", letra: "A" }, // "a"
@@ -27,6 +29,23 @@ document.addEventListener('DOMContentLoaded', function () {
     let timer;
     let letrasObtidas = [];
     const palavraFinalCorreta = "BUSCA";
+    // Lógica do botão "Estou pronto"
+    startBtn.addEventListener('click', function () {
+        startBtn.style.display = 'none';  // Esconder o botão "Estou pronto"
+        waitingMessage.style.display = 'block';  // Mostrar a mensagem "Aguardando para começar..."
+        let countDown = 5;
+        const countdownInterval = setInterval(function () {
+            waitingMessage.textContent = `Aguarde... Jogo começando em ${countDown} segundos`;
+            countDown--;
+            if (countDown < 0) {
+                clearInterval(countdownInterval);
+                loginSection.style.display = 'none';  // Esconde a seção de login
+                gameSection.style.display = 'block';  // Mostra a seção de jogo
+                carregarFase(faseAtual);
+                startTimer();  // Inicia o cronômetro do jogo
+            }
+        }, 1000);
+    });
 
     // Função para começar o jogo após login
     loginForm.addEventListener('submit', function (e) {

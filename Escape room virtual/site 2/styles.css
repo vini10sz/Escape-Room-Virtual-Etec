@@ -28,8 +28,25 @@ body {
     color: rgb(0, 0, 0);
     margin-bottom: 20px;
     text-shadow: -1px -1px 0 #e6e92f, 1px -1px 0 #e6e92f, -1px 1px 0 #e6e92f, 1px 1px 0 #e6e92f;
-
+    animation: pulseAnimation 7s infinite;
 }
+
+/* Definindo a animação */
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 
 .realize {
     font-size: 16px;
@@ -187,6 +204,26 @@ body {
 
 }
 
+#startBtn{
+    background-color: #58c254;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 10px;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+    border-color: #160916;
+}
+
+#startBtn:hover{
+
+    background-color: #47438a;
+    transform: scale(1.1);
+
+
+}
 #skipBtn {
     background-color: #c45757;
     color: white;
@@ -201,6 +238,32 @@ body {
 
 
 }
+
+
+#startTimerButton {
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    background-color: #bfbfbf;
+    color: #1c071d;
+    border: 4px solid #000;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#startTimerButton:hover {
+    background-color: #7c80af;
+    transform: scale(1.1);
+}
+
+#timerMessage {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    color: #000;
+    margin-top: 10px;
+}
+
 
 .enviar:hover{
 
