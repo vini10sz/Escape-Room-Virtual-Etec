@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost"; // Nome do servidor
 $username = "root";        // Nome de usuário do banco de dados
-$password = "root2023";            // Senha do banco de dados
+$password = "";            // Senha do banco de dados root2023
 $dbname = "escape_room";   // Nome do banco de dados
 
 // Conexão com o banco de dados
