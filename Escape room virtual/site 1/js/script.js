@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { pergunta: "Qual é o nome do filósofo grego conhecido como o pai da lógica?", resposta: "Aristóteles", letra: "O" },
         { pergunta: "Qual é a ciência que estuda os seres vivos e seu ambiente?", resposta: "Biologia", letra: "I" },
         { pergunta: "Qual é a capital do Japão?", resposta: "Tóquio", letra: "T" },
-        { pergunta: "Quantos continentes existem no mundo?", resposta: "7", letra: "A" },
+        { pergunta: "Quantos continentes existem no mundo?", resposta: "6", letra: "A" },
         { pergunta: "Em que ano ocorreu a Independência do Brasil?", resposta: "1822", letra: "Ç" },
         { pergunta: "Qual é o maior planeta do sistema solar?", resposta: "Júpiter", letra: "I" }
     ];
