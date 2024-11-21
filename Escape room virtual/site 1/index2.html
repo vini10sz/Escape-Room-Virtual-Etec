@@ -5,23 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escape Room Virtual</title>
     <link rel="icon" href="../imgs/key.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
     <header>
         <img src="../imgs/titulo.png" class="titulo" alt="tit">
-        <p class ='sub'>Resolva enigmas e escape da sala!</p>
-
+        <p class="sub">Resolva enigmas e escape da sala!</p>
     </header>
 
-
-
     <section id="login">
-        <!-- Adicione esse botão abaixo do formulário de login -->
-           <button id="startBtn" class="start">ESTOU PRONTO</button>
-           <p id="waitingMessage" class="waiting" style="display:none;">Aguardando para começar...</p>
-
+        <!-- Botão inicial -->
+        <button id="startBtn" class="start">ESTOU PRONTO</button>
+        <p id="waitingMessage" class="waiting" style="display:none;">Aguardando para começar...</p>
     </section>
 
     <!-- Fases do Jogo -->
@@ -31,37 +27,32 @@
         <form id="gameForm">
             <input type="text" id="answer" name="answer" placeholder="Digite a resposta">
             <button class="enviar" type="submit">Enviar Resposta</button>
-            <button id="skipBtn">Pular Fase</button>
         </form>
-        
-        <!-- Timer container to align image and text -->
+
+        <!-- Timer container -->
         <div class="timer-container">
             <img src="../imgs/TEMPO.png" class="tempo" alt="Icone Tempo">
             <p id="timer">TEMPO RESTANTE: <span id="timeLeft">90</span> SEGUNDOS</p>
         </div>
-    
+
         <p id="feedback"></p>
         <p id="letters">LETRAS OBTIDAS: <span id="letrasObtidas"></span></p>
         <div id="confeitosContainer"></div>
     </section>
 
     <!-- Tela Final - Formar a Palavra -->
-
     <section id="finalScreen" style="display:none;">
-
-
-        <p class ="letras">Essas são as letras que você conseguiu:</p>
+        <p class="letras">Essas são as letras que você conseguiu:</p>
         <p id="finalLetters"></p>
         <form id="finalForm">
             <label for="finalWord" class="final">Forme a palavra final:</label>
-            <input type="text" class ="txtPalavra"id="finalWord" name="finalWord" placeholder="Digite a palavra final">
-            <button class ="verificar" type="submit">VERIFICAR PALAVRA</button>
+            <input type="text" class="txtPalavra" id="finalWord" name="finalWord" placeholder="Digite a palavra final">
+            <button class="verificar" type="submit">VERIFICAR PALAVRA</button>
         </form>
         <p id="finalFeedback"></p>
     </section>
 
     <!-- Script JS -->
     <script src="js/script.js"></script>
-
 </body>
 </html>

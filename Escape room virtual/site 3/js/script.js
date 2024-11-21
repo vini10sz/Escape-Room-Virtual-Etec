@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.getElementById('loginForm');
-    const gameSection = document.getElementById('game');
     const loginSection = document.getElementById('login');
+    const gameSection = document.getElementById('game');
     const startBtn = document.getElementById('startBtn');
     const waitingMessage = document.getElementById('waitingMessage');
     const timerElement = document.getElementById('timeLeft');
@@ -11,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const letrasObtidasElement = document.getElementById('letrasObtidas');
     const finalScreen = document.getElementById('finalScreen');
     const finalLetters = document.getElementById('finalLetters');
-    const finalForm = document.getElementById('finalForm'); 
+    const finalForm = document.getElementById('finalForm');
     const finalFeedback = document.getElementById('finalFeedback');
 
     let fases = [
@@ -23,37 +22,35 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     let faseAtual = 0;
-    let timeLeft = 90;
+    let timeLeft = 60;
     let timer;
     let letrasObtidas = [];
     const palavraFinalCorreta = "PASSA TEMPO";
 
-    // Lógica do botão "Estou pronto"
     startBtn.addEventListener('click', function () {
-        startBtn.style.display = 'none';  // Esconder o botão "Estou pronto"
-        waitingMessage.style.display = 'block';  // Mostrar a mensagem "Aguardando para começar..."
+        startBtn.style.display = 'none';
+        waitingMessage.style.display = 'block';
         let countDown = 5;
         const countdownInterval = setInterval(function () {
             waitingMessage.textContent = `Aguarde... Jogo começando em ${countDown} segundos`;
             countDown--;
             if (countDown < 0) {
                 clearInterval(countdownInterval);
-                loginSection.style.display = 'none';  // Esconde a seção de login
-                gameSection.style.display = 'block';  // Mostra a seção de jogo
+                loginSection.style.display = 'none';
+                gameSection.style.display = 'block';
                 carregarFase(faseAtual);
-                startTimer();  // Inicia o cronômetro do jogo
             }
         }, 1000);
     });
 
-    // Função do cronômetro
     function startTimer() {
-        timeLeft = 90;
+        timeLeft = 60;
         timer = setInterval(function () {
             if (timeLeft <= 0) {
                 clearInterval(timer);
-                feedbackElement.textContent = "Tempo esgotado! Você perdeu a fase.";
-                pularFase();
+                feedbackElement.textContent = "Tempo esgotado! Tente novamente.";
+                faseAtual++;
+                carregarFase(faseAtual);
             } else {
                 timeLeft--;
                 timerElement.textContent = timeLeft;
@@ -61,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1000);
     }
 
-    // Função para carregar uma nova fase
     function carregarFase(faseIndex) {
         if (faseIndex >= fases.length) {
             mostrarTelaFinal();
@@ -74,54 +70,34 @@ document.addEventListener('DOMContentLoaded', function () {
         startTimer();
     }
 
-    // Função para verificar a resposta da fase
     document.getElementById('gameForm').addEventListener('submit', function (e) {
         e.preventDefault();
         const answer = document.getElementById('answer').value.toLowerCase();
-        
-        if (answer === fases[faseAtual].resposta.toLowerCase()) {  // Resposta correta
+        if (answer === fases[faseAtual].resposta.toLowerCase()) {
             feedbackElement.textContent = "Parabéns! Você completou a fase.";
             letrasObtidas.push(fases[faseAtual].letra);
-            letrasObtidasElement.textContent = letrasObtidas.join(' ');  // Use um espaço para separar as letras
-            console.log("Letras obtidas:", letrasObtidas);  // Debug: Verifique as letras obtidas
+            letrasObtidasElement.textContent = letrasObtidas.join(' ');
             clearInterval(timer);
             faseAtual++;
             carregarFase(faseAtual);
-        } else {  // Resposta incorreta
-            feedbackElement.textContent = "Resposta incorreta. A fase será pulada.";
-            clearInterval(timer);
-            pularFase();
+        } else {
+            feedbackElement.textContent = "Resposta incorreta. Tente novamente.";
         }
     });
 
-    // Função para pular a fase
-    document.getElementById('skipBtn').addEventListener('click', function () {
-        pularFase();
-    });
-
-    function pularFase() {
-        clearInterval(timer);
-        faseAtual++;
-        carregarFase(faseAtual);
-    }
-
-    // Mostrar tela final e letras obtidas
     function mostrarTelaFinal() {
         gameSection.style.display = 'none';
         finalScreen.style.display = 'block';
         finalLetters.textContent = letrasObtidas.join(' ');
     }
 
-    // Verificar a palavra final (apenas uma tentativa)
     finalForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const finalWord = document.getElementById('finalWord').value.toUpperCase();
         if (finalWord === palavraFinalCorreta) {
-            finalFeedback.textContent = "Parabéns! Você acertou a palavra final e completou o jogo!";
-            criarConfeitos();  // Chama a função para criar confeitos quando a palavra final é acertada
+            finalFeedback.textContent = "Parabéns! Você venceu o jogo!";
         } else {
-            finalFeedback.textContent = "GAME OVER! Não há mais tentativas.";
-            finalForm.querySelector('button').disabled = true;  // Desabilitar novas tentativas
+            finalFeedback.textContent = "Palavra incorreta. Tente novamente.";
         }
     });
 });
